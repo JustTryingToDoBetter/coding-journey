@@ -20,55 +20,15 @@ export interface Phase {
 export interface Milestone {
   id: string;
   title: string;
-  phaseId: number;
-  weekId?: string;
-  status: TaskStatus;
-}
-
-export interface Skill {
-  id: string;
-  name: string;
-  trackId: string;
-  difficulty: Difficulty;
-  linkedMilestone: string;
-  status: TaskStatus;
-  notes?: string;
-}
-
-export interface Evidence {
-  id: string;
-  taskId: string;
-  notes?: string;
-  url?: string;
-  artifact?: string;
-  updatedAt?: string;
-}
-
-export interface WeeklyTask {
-  id: string;
-  weekId: string;
-  weekNumber: number;
+  description: string;
   phaseNumber: number;
-  dayLabel: string;
-  trackId: string;
-  platformId: string;
-  title: string;
-  conceptText: string;
-  concepts: string[];
-  durationHours: number;
-  durationLabel: string;
-  exam: boolean;
-  kind: 'project' | 'theory' | 'practice';
-  difficulty: Difficulty;
-  linkedMilestone: string;
-  status: TaskStatus;
-}
-
-export interface Reflection {
-  id: string;
+  priority: number;
   weekId: string;
-  summary: string;
-  wins: string;
-  blockers: string;
-  nextSteps: string;
+  weeklyTaskIds: string[];
+  skillsTrained: string[];
+  evidenceRequirements: string[];
+  expectedOutput: string;
+  difficulty: Difficulty;
+  status: 'not_started' | 'in_progress' | 'completed';
+  evidencePlaceholder: string;
 }

@@ -14,12 +14,20 @@ const tracks: Track[] = Object.entries(TRACKS).map(([id, track]) => ({
   color: C[id],
 }));
 
-const milestones: Milestone[] = ROADMAP_DATA.weeks.map((week) => ({
-  id: `ms-${week.id}`,
-  title: week.title,
-  phaseId: week.phaseNumber,
-  weekId: week.id,
-  status: 'not_started',
+const milestones: Milestone[] = ROADMAP_DATA.milestones.map((milestone) => ({
+  id: milestone.id,
+  title: milestone.title,
+  description: milestone.description,
+  phaseNumber: milestone.phaseNumber,
+  priority: milestone.priority,
+  weekId: milestone.weekId,
+  weeklyTaskIds: milestone.weeklyTaskIds,
+  skillsTrained: milestone.skillsTrained,
+  evidenceRequirements: milestone.evidenceRequirements,
+  expectedOutput: milestone.expectedOutput,
+  difficulty: milestone.difficulty,
+  status: milestone.status,
+  evidencePlaceholder: milestone.evidencePlaceholder,
 }));
 
 export { milestones, phases, tracks };
