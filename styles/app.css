@@ -1,7 +1,10 @@
 @import './tokens.css';
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+:focus-visible{outline:2px solid #9dd4ff;outline-offset:2px;box-shadow:var(--focus-ring)}
+
+.skip-link{position:absolute;left:1rem;top:-40px;z-index:1000;padding:.5rem .75rem;border-radius:8px;background:#fff;color:#0a1730;font-weight:700;text-decoration:none}
+.skip-link:focus-visible{top:1rem}
 
 .card,.panel{background:var(--color-glass);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--elevation-1);backdrop-filter:blur(10px)}
 .card:hover{border-color:var(--border2);box-shadow:var(--elevation-2)}
