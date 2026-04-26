@@ -309,9 +309,9 @@ function badge(pl){
   return '<span class="pbadge '+(BC[pl]||'bfree')+'">'+escapeHTML(PL[pl]||pl)+'</span>';
 }
 function trackPill(trackId){
-  var color=C[trackId]||'#5670D8';
   var track=TRACKS[trackId]||{name:'General'};
-  return '<span class="trackpill" style="background:'+toRGBA(color,0.13)+';color:'+color+';border-color:'+toRGBA(color,0.36)+'">'+escapeHTML(track.name)+'</span>';
+  var key=trackId||'read';
+  return '<span class="trackpill badge" data-track="'+escapeAttr(key)+'">'+escapeHTML(track.name)+'</span>';
 }
 function formatPct(value){
   return Math.round(value)+'%';

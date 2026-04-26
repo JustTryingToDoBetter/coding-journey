@@ -1,7 +1,7 @@
 import { PL, TRACKS } from '../data/index.js';
 
 export function renderFilterPanel(filters, visibleCount) {
-  return `<section class="filter-panel">
+  return `<section class="filter-panel panel">
     <div class="panel-title">Filters And Search</div>
     <div class="filter-row">
       <label class="filter-field"><span class="filter-label">Track</span>
