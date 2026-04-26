@@ -17,6 +17,33 @@ export interface Phase {
   goal: string;
 }
 
+export interface Evidence {
+  id: string;
+  taskId: string;
+  weekId: string;
+  trackId: string;
+  type: 'code' | 'demo' | 'certificate' | 'reflection' | 'other';
+  title: string;
+  githubUrl?: string;
+  liveUrl?: string;
+  certificateUrl?: string;
+  notes?: string;
+  reflection?: string;
+  createdAt?: string;
+}
+
+export interface ProjectShowcase {
+  id: string;
+  projectName: string;
+  summary: string;
+  problem: string;
+  outcomes: string[];
+  techStack: string[];
+  evidenceIds: string[];
+  impactMetrics: string[];
+  role: 'individual_contributor' | 'tech_lead' | 'manager';
+}
+
 export interface Milestone {
   id: string;
   title: string;
