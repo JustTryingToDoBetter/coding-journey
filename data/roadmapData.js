@@ -284,7 +284,7 @@ const STATUS_META={
 const DEFAULT_EVIDENCE={githubUrl:'',liveUrl:'',notes:'',certificate:false,certificateUrl:'',screenshotUrl:'',reflection:''};
 const DEFAULT_REVIEW={wins:'',blockers:'',learned:'',improve:'',confidence:3};
 const DEFAULT_FILTERS={track:'all',platform:'all',search:'',showIncomplete:false,showEvidenceOnly:false,showShippedOnly:false,focusMode:false};
-const STORAGE={key:'roadmapExecutionStore',version:2};
+const STORAGE={key:'roadmapExecutionStore',version:3};
 const DAY_MS=24*60*60*1000;
 const TODAY=new Date();
 
