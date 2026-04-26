@@ -4,11 +4,11 @@ export function renderNav(phases, activePhase) {
       ${phases
         .map(
           (phase) => `<button class="tab btn ${phase.number === activePhase ? 'active' : ''}" data-phase="${phase.number}">
-            <span>${phase.name.replace('Phase ', '')}</span>
+            <span>${phase.name}</span>
           </button>`
         )
         .join('')}
-      <button class="tab btn ${activePhase === 5 ? 'active' : ''}" data-phase="5">Resources</button>
+      <button class="tab btn ${activePhase === 7 ? 'active' : ''}" data-phase="7">Resources</button>
     </div></div>
   `;
 }

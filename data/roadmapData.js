@@ -12,10 +12,12 @@ prj:{name:'Build / Project'},
 read:{name:'Reading / Theory'},
 };
 const PHASES={
-1:{name:'Phase 01 â€” Foundations',dates:'Apr 19 â€“ May 30',goal:'Lock in fundamentals across all 4 tracks simultaneously. Finish DP-100 cert (Apr 21). Hit 100% on DataCamp ML Engineer track and claim that cert. Build the daily study habit while wrapping up the internship.'},
-2:{name:'Phase 02 â€” Depth',dates:'Jun 1 â€“ Jul 11',goal:'Post-internship full lockdown mode. 9-10 hrs/week available. Kubernetes, MLOps pipelines, distributed systems theory, LangChain RAG systems. Start shipping production Odysseus features.'},
-3:{name:'Phase 03 â€” Integration',dates:'Jul 12 â€“ Aug 22',goal:'Cross-track integration week over week. Build features combining ML + FS + AI. Target Google Cloud cert. Ship first open source PR. Launch WTF Do I Eat MVP via Capacitor.'},
-4:{name:'Phase 04 â€” Senior Level',dates:'Aug 23 â€“ Oct 3',goal:'Staff+ thinking, C4 architecture diagrams, ADRs, technical blog posts, leadership frameworks. All projects live. Portfolio complete. Ready for mid-level to senior engineer applications.'},
+1:{name:'Foundation',dates:'Apr 19 â€“ May 16',goal:'Establish baseline consistency, lock core concepts, and produce first proof points.'},
+2:{name:'Builder',dates:'May 17 â€“ Jun 13',goal:'Increase build velocity and convert theory into weekly shipped artifacts.'},
+3:{name:'Systems Thinker',dates:'Jun 14 â€“ Jul 11',goal:'Design for scale and reliability while connecting architecture decisions to outcomes.'},
+4:{name:'AI/Product Engineer',dates:'Jul 12 â€“ Aug 8',goal:'Pair model capability with user value and ship AI-assisted product increments.'},
+5:{name:'Technical Lead',dates:'Aug 9 â€“ Sep 5',goal:'Drive architecture quality, technical direction, and team-level execution clarity.'},
+6:{name:'Senior Manager Readiness',dates:'Sep 6 â€“ Oct 3',goal:'Demonstrate roadmap ownership, communication, and delivery outcomes at org scope.'},
 };
 const W=[
 {w:1,p:1,dates:'Apr 19-25',title:'DP-100 Exam + Roadmap Kickoff',focus:'Keep Mon-Tue focused on exam prep; sit DP-100 Apr 21, then full rotation starts',days:[
@@ -345,6 +347,9 @@ function deriveMilestone(day){
   if(/(ship|deploy|launch|publish|submit|cert|capstone|retro|portfolio)/.test(text))return {label:'Milestone',type:'ship'};
   return null;
 }
+function derivePhaseNumber(weekNumber){
+  return Math.min(6,Math.floor((weekNumber-1)/4)+1);
+}
 function buildRoadmapData(){
   var phases=Object.keys(PHASES).map(function(key){
     return {
@@ -362,7 +367,7 @@ function buildRoadmapData(){
         id:'w'+week.w+'-d'+index,
         weekId:weekId,
         weekNumber:week.w,
-        phaseNumber:week.p,
+        phaseNumber:derivePhaseNumber(week.w),
         dayLabel:day.d,
         trackId:day.t,
         platformId:day.pl,
@@ -379,7 +384,7 @@ function buildRoadmapData(){
     return {
       id:weekId,
       number:week.w,
-      phaseNumber:week.p,
+      phaseNumber:derivePhaseNumber(week.w),
       dates:week.dates,
       title:week.title,
       focus:week.focus,
@@ -387,8 +392,25 @@ function buildRoadmapData(){
     };
   });
   var tasks=weeks.flatMap(function(week){return week.tasks;});
-  var milestones=tasks.filter(function(task){return task.milestone;}).map(function(task){
-    return {id:'milestone-'+task.id,taskId:task.id,weekId:task.weekId,label:task.milestone.label,type:task.milestone.type};
+  var milestones=weeks.map(function(week){
+    var skillsTrained=Array.from(new Set(week.tasks.map(function(task){return task.trackId;})));
+    var expectedTask=week.tasks.find(function(task){return task.kind==='project'||task.exam;})||week.tasks[week.tasks.length-1];
+    var hasHardSignal=week.tasks.some(function(task){return task.durationHours>=2||task.exam||task.kind==='project';});
+    return {
+      id:'milestone-'+week.id,
+      weekId:week.id,
+      phaseNumber:week.phaseNumber,
+      priority:week.number,
+      title:week.title,
+      description:week.focus,
+      skillsTrained:skillsTrained,
+      evidenceRequirements:['Notes summary','Artifact link','Reflection'],
+      expectedOutput:expectedTask?expectedTask.title:'Complete weekly outcomes',
+      difficulty:hasHardSignal?'hard':'medium',
+      status:'not_started',
+      evidencePlaceholder:'Attach PR, notes, screenshots, or certificate evidence for this milestone.',
+      weeklyTaskIds:week.tasks.map(function(task){return task.id;})
+    };
   });
   return {
     roadmap:{
