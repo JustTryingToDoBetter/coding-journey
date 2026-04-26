@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6-Month Tech Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#EDF3FF;
+  --bg1:#FFFFFF;
+  --bg2:#F6F9FF;
+  --bg3:#EAF0FF;
+  --border:rgba(38,71,148,0.16);
+  --border2:rgba(38,71,148,0.28);
+  --text:#1A2342;
+  --text2:#42517D;
+  --text3:#7180A8;
+  --shadow:0 16px 36px rgba(22,43,104,0.14);
+  --se:#18B97A;
+  --ml:#2D8FF8;
+  --fs:#FF9F1C;
+  --ai:#8868F9;
+  --dsa:#EC5D93;
+  --prj:#3C966E;
+  --read:#67779D;
+}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(900px 500px at -10% 0%, rgba(128,220,255,0.35), transparent 63%),
+    radial-gradient(760px 460px at 105% 8%, rgba(255,166,184,0.32), transparent 60%),
+    linear-gradient(180deg,#F7FAFF 0%, #ECF3FF 44%, #F6FBFF 100%);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  min-height:100vh;
+}
+.header{
+  padding:2.7rem 2rem 2rem;
+  max-width:1180px;
+  margin:1.15rem auto 0;
+  background:rgba(255,255,255,0.78);
+  border:1px solid rgba(255,255,255,0.86);
+  box-shadow:var(--shadow);
+  border-radius:24px;
+  backdrop-filter:blur(8px);
+}
+.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.75rem}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5.2vw,3.8rem);font-weight:700;line-height:1.05;margin-bottom:.8rem;letter-spacing:-.02em}
+h1 span{background:linear-gradient(135deg,#20B97D,#2FA9FF 50%,#8D73FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--text2);font-size:15px;max-width:760px;line-height:1.75;margin-bottom:1.5rem}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.leg{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,0.76);border:1px solid var(--border);padding:5px 11px 5px 8px;border-radius:999px;box-shadow:0 3px 10px rgba(18,41,105,0.06)}
+.legdot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.leglabel{font-family:'DM Mono',monospace;font-size:10px;color:var(--text2);letter-spacing:.02em}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  margin-top:1.15rem;
+  background:rgba(237,244,255,0.74);
+  backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,0.85);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{max-width:1180px;margin:0 auto;display:flex;overflow-x:auto;gap:.5rem;padding:.74rem 2rem}
+.tab{display:flex;align-items:center;gap:8px;padding:.66rem 1rem;cursor:pointer;border:1px solid transparent;border-radius:999px;background:transparent;color:var(--text2);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;white-space:nowrap;transition:all .2s}
+.tab:hover{color:var(--text);border-color:var(--border);background:#FFFFFF}
+.tab.active{color:#FFFFFF;background:linear-gradient(135deg,#276DFF,#34BFFF);box-shadow:0 10px 22px rgba(37,100,255,0.29)}
+.tab.active .tnum{background:rgba(255,255,255,0.22);color:#FFFFFF}
+.tnum{background:var(--bg3);padding:2px 7px;border-radius:999px;font-size:10px;color:var(--text2)}
+.rotbar{padding:1rem 2rem .35rem}
+.rotbar-inner{max-width:1180px;margin:0 auto;background:rgba(255,255,255,0.7);border:1px solid var(--border);border-radius:16px;padding:.88rem 1rem .92rem;box-shadow:0 8px 20px rgba(20,46,115,0.08)}
+.rottitle{font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin-bottom:.6rem}
+.rotdays{display:flex;gap:6px;flex-wrap:wrap}
+.rotday{display:flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid var(--border);padding:4px 10px;border-radius:999px;font-size:12px}
+.rotday-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)}
+.content{max-width:1180px;margin:0 auto;padding:1.7rem 2rem 2.4rem}
+.phase-hdr{margin-bottom:1rem}
+.phase-name{font-family:'Syne',sans-serif;font-size:1.62rem;font-weight:700;line-height:1.2;margin-bottom:.3rem;letter-spacing:-.01em}
+.phase-meta{font-size:14px;color:var(--text2);line-height:1.7;max-width:860px}
+.phase-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.75rem;margin:1rem 0 1.25rem}
+.kpi{background:rgba(255,255,255,0.8);border:1px solid var(--border);border-radius:14px;padding:.68rem .84rem;box-shadow:0 6px 16px rgba(24,49,120,0.08)}
+.klabel{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:2px}
+.kval{font-size:1.05rem;font-weight:700;color:var(--text)}
+.phase-progress{background:rgba(255,255,255,0.82);border:1px solid var(--border);border-radius:14px;padding:.72rem .86rem;margin:-.35rem 0 1.15rem;box-shadow:0 6px 14px rgba(22,44,109,0.08)}
+.phase-progress-head{display:flex;justify-content:space-between;align-items:center;gap:.6rem;margin-bottom:.45rem}
+.phase-progress-meta{font-family:'DM Mono',monospace;font-size:11px;color:var(--text2)}
+.phase-progress-track{height:11px;background:#DBE6FF;border:1px solid rgba(42,92,220,0.2);border-radius:999px;overflow:hidden}
+.phase-progress-fill{height:100%;background:linear-gradient(90deg,#2671FF,#2EB8FF 58%,#26D9B2);border-radius:999px;transition:width .22s ease-out}
+.roadmap{position:relative;padding-left:2.6rem;display:grid;gap:.9rem}
+.roadmap:before{content:'';position:absolute;left:1rem;top:.4rem;bottom:.4rem;width:3px;background:linear-gradient(180deg,#89B3FF,#74E4CB)}
+.wcard{position:relative;background:var(--bg1);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 24px rgba(22,45,109,0.11);transition:transform .2s,border-color .2s,box-shadow .2s}
+.wcard::before{content:'';position:absolute;left:-1.88rem;top:1.38rem;width:14px;height:14px;border-radius:50%;background:linear-gradient(145deg,#2D70FF,#34CDFF);border:2px solid #FFFFFF;box-shadow:0 0 0 4px rgba(45,112,255,0.2)}
+.wcard:hover{transform:translateY(-2px);border-color:var(--border2);box-shadow:0 16px 30px rgba(18,46,121,0.17)}
+.whdr{width:100%;display:flex;align-items:flex-start;justify-content:space-between;padding:1rem 1.2rem;cursor:pointer;user-select:none;gap:1rem;border:none;background:transparent;text-align:left}
+.whdr-l{display:flex;flex-direction:column;gap:.2rem;flex:1;min-width:0}
+.wmeta{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.wnum{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)}
+.wtitle{font-size:1rem;font-weight:700;line-height:1.35;color:var(--text)}
+.wfocus{font-size:12px;color:var(--text2);line-height:1.45}
+.wdates{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)}
+.wtoggle{font-family:'DM Mono',monospace;font-size:13px;color:var(--text3);transition:transform .2s;flex-shrink:0;padding-top:3px}
+.wcard.open .wtoggle{transform:rotate(180deg)}
+.dgrid{display:none;padding:0 1.2rem 1.2rem;border-top:1px dashed var(--border);grid-template-columns:repeat(2,minmax(0,1fr));gap:.78rem}
+.wcard.open .dgrid{display:grid}
+.drow{--track:#2D70FF;background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--track);border-radius:14px;padding:.75rem .8rem;display:flex;flex-direction:column;gap:.53rem}
+.dtop{display:flex;flex-wrap:wrap;gap:.42rem;align-items:center}
+.daypill{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.11em;color:var(--text3);background:#FFFFFF;border:1px solid var(--border);padding:3px 7px;border-radius:999px}
+.trackpill{font-size:11px;font-weight:600;padding:3px 8px;border:1px solid transparent;border-radius:999px;line-height:1.2}
+.dhrs{margin-left:auto;font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);background:#FFFFFF;border:1px solid var(--border);padding:3px 7px;border-radius:999px;white-space:nowrap}
+.done-toggle{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);background:#FFFFFF;border:1px solid var(--border);padding:2px 7px 2px 6px;border-radius:999px}
+.done-toggle input{accent-color:var(--track);width:12px;height:12px;cursor:pointer}
+.dblock{display:block}
+.dblabel{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
+.dact{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;flex-wrap:wrap;line-height:1.45;color:var(--text)}
+.concepts{display:flex;flex-wrap:wrap;gap:5px}
+.concept{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--border);background:#FFFFFF;color:var(--text2);line-height:1.3}
+.drow.done{background:#F3FBF7;border-color:rgba(41,152,106,0.28)}
+.drow.done .dact{color:#2A7762;text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:rgba(42,119,98,0.52)}
+.drow.done .concept{opacity:.7}
+.drow.done .dblabel{color:#558C81}
+.pbadge{font-family:'DM Mono',monospace;font-size:10px;padding:2px 7px;border-radius:999px;font-weight:500;white-space:nowrap}
+.exam{display:inline-block;background:#FFF0F0;color:#D23B57;border:1px solid #F2A2B2;font-family:'DM Mono',monospace;font-size:10px;padding:2px 7px;border-radius:999px}
+.bfm{background:#E9F2FF;color:#285FCA;border:1px solid #BDD4FF}
+.bdc{background:#E4F6FF;color:#0F7FAB;border:1px solid #A5DAF0}
+.bed{background:#E7FAEF;color:#1E8E5C;border:1px solid #A5E3C0}
+.bbd{background:#FFF5E4;color:#AF6F00;border:1px solid #F5D08D}
+.bms{background:#ECEFFF;color:#3D58C8;border:1px solid #C4CDF6}
+.bfree{background:#F2F7E3;color:#6F861B;border:1px solid #CDE0A1}
+.bprj{background:#EAF6EE;color:#2E8A5F;border:1px solid #BFE0CC}
+.supp-wrap{margin-top:1.8rem;display:grid;gap:1rem}
+.supp-cat{background:var(--bg1);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(26,51,126,0.09)}
+.supp-cat-hdr{padding:.95rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:linear-gradient(180deg,#FFFFFF,#F6F9FF)}
+.supp-cat-name{font-family:'DM Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.supp-items{padding:.95rem 1.1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.86rem}
+.sitem{border:1px solid var(--border);background:var(--bg2);border-radius:12px;padding:.72rem .75rem}
+.sname{font-size:13px;color:var(--text);line-height:1.4;font-weight:700}
+.sdesc{font-size:11px;color:var(--text2);line-height:1.55;margin-top:3px}
+.sauthor{font-size:11px;color:var(--text3);margin-top:1px}
+.freetag{display:inline-block;font-size:9px;font-family:'DM Mono',monospace;background:#EAF6CF;color:#5C7D16;border:1px solid #BCD77A;padding:1px 5px;border-radius:999px;vertical-align:middle;margin-left:5px}
+.app-shell{display:grid;gap:1rem}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:1rem;margin-bottom:1rem}
+.dashboard-panel,.focus-panel,.filter-panel,.ops-panel,.insight-card,.review-panel,.empty-state{background:rgba(255,255,255,0.82);border:1px solid var(--border);border-radius:18px;box-shadow:0 10px 24px rgba(22,45,109,0.11)}
+.dashboard-panel,.filter-panel,.ops-panel,.insight-card,.review-panel,.empty-state{padding:1rem 1.05rem}
+.focus-panel{padding:1.05rem;background:linear-gradient(145deg,rgba(255,255,255,0.92),rgba(239,246,255,0.88));overflow:hidden;position:relative}
+.focus-panel:after{content:'';position:absolute;inset:auto -25% -40% auto;width:240px;height:240px;background:radial-gradient(circle,rgba(52,191,255,.18),transparent 65%);pointer-events:none}
+.panel-title,.summary-kicker,.filter-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3)}
+.panel-title,.summary-kicker{margin-bottom:.55rem}
+.focus-title{font-family:'Syne',sans-serif;font-size:1.35rem;line-height:1.08;margin-bottom:.35rem}
+.focus-copy,.insight-copy,.empty-copy{font-size:13px;color:var(--text2);line-height:1.6}
+.focus-meta,.mini-meta,.ops-row,.phase-summary,.week-summary,.task-badges,.task-actions,.evidence-links,.review-grid,.filter-toggles,.dashboard-grid,.track-breakdown,.resource-stats{display:flex;flex-wrap:wrap;gap:.55rem}
+.focus-meta{margin-top:.85rem}
+.stat-chip,.mini-chip,.signal-chip,.milestone-chip,.evidence-chip,.kind-chip,.status-chip,.week-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;border:1px solid var(--border);background:#FFFFFF;font-family:'DM Mono',monospace;font-size:10px;color:var(--text2)}
+.dashboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.75rem}
+.metric-card{padding:.85rem .9rem;border-radius:14px;border:1px solid var(--border);background:linear-gradient(180deg,#FFFFFF,#F6FAFF)}
+.metric-value{font-size:1.15rem;font-weight:700;color:var(--text);line-height:1.1}
+.metric-label{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:.22rem}
+.metric-sub,.app-note,.helper-text{font-size:11px;color:var(--text2)}
+.track-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.65rem;margin-top:.8rem}
+.track-card{padding:.72rem .8rem;border:1px solid var(--border);border-radius:14px;background:rgba(246,249,255,0.92)}
+.track-card-head{display:flex;justify-content:space-between;gap:.75rem;align-items:center;margin-bottom:.45rem}
+.track-name{font-size:12px;font-weight:700}
+.track-bar,.summary-bar{height:8px;background:#DFE8FF;border-radius:999px;overflow:hidden}
+.track-fill,.summary-fill{height:100%;border-radius:999px}
+.summary-fill{background:linear-gradient(90deg,#2671FF,#2EB8FF 58%,#26D9B2)}
+.filter-panel,.ops-panel{display:grid;gap:.85rem}
+.filter-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.evidence-grid,.review-grid,.task-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.filter-field{display:grid;gap:.3rem}
+.filter-input,.filter-select,.review-input,.review-select,.evidence-input,.evidence-textarea,.status-select{width:100%;border:1px solid var(--border);border-radius:12px;background:#FFFFFF;color:var(--text);font:inherit;padding:.72rem .8rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.filter-input:focus,.filter-select:focus,.review-input:focus,.review-select:focus,.evidence-input:focus,.evidence-textarea:focus,.status-select:focus{border-color:rgba(39,109,255,0.45);box-shadow:0 0 0 4px rgba(39,109,255,0.1)}
+.filter-toggle{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);border-radius:999px;background:#FFFFFF;padding:.45rem .75rem;font-size:12px;color:var(--text2);cursor:pointer}
+.filter-toggle input{accent-color:#2A75FF}
+.ops-row{align-items:center}
+.ghost-btn,.primary-btn,.quiet-btn,.link-btn{border:1px solid var(--border);border-radius:999px;background:#FFFFFF;padding:.62rem .9rem;font:inherit;color:var(--text);cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s}
+.primary-btn{background:linear-gradient(135deg,#266CFF,#35BDFF);color:#FFFFFF;border-color:transparent;box-shadow:0 10px 20px rgba(37,100,255,0.22)}
+.quiet-btn,.link-btn{padding:.42rem .7rem;font-size:12px}
+.link-btn{background:transparent}
+.ghost-btn:hover,.primary-btn:hover,.quiet-btn:hover,.link-btn:hover{transform:translateY(-1px);border-color:var(--border2)}
+.phase-summary{margin:1rem 0}
+.phase-summary .insight-card{flex:1 1 240px}
+.week-metrics{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:flex-end}
+.week-summary{margin:0 1.2rem .95rem;padding-top:.9rem;border-top:1px dashed var(--border)}
+.task-card{--track:#2D70FF;background:var(--bg2);border:1px solid var(--border);border-left:4px solid var(--track);border-radius:16px;padding:.85rem;display:grid;gap:.62rem;transition:transform .18s,border-color .18s,box-shadow .18s}
+.task-card:hover{transform:translateY(-1px);border-color:var(--border2);box-shadow:0 12px 22px rgba(22,45,109,0.1)}
+.task-card.has-evidence{box-shadow:0 10px 24px rgba(43,146,104,0.12);background:linear-gradient(180deg,#FBFFFD,#F4FBF7)}
+.task-card.is-milestone{background:linear-gradient(180deg,rgba(255,255,255,0.97),rgba(241,248,255,0.95))}
+.task-card[data-status="done"],.task-card[data-status="reviewed"],.task-card[data-status="shipped"]{border-color:rgba(42,119,98,0.28)}
+.task-card[data-status="blocked"]{background:linear-gradient(180deg,#FFF9F5,#FFF6EF)}
+.task-top{display:flex;flex-wrap:wrap;gap:.42rem;align-items:center}
+.task-title{font-size:14px;font-weight:700;line-height:1.45}
+.task-copy{font-size:12px;color:var(--text2)}
+.kind-chip.project{background:#EAF6EE;color:#2E8A5F;border-color:#BFE0CC}
+.kind-chip.theory{background:#F2F7E3;color:#6F861B;border-color:#CDE0A1}
+.kind-chip.practice{background:#FFF5E4;color:#AF6F00;border-color:#F5D08D}
+.status-select{max-width:170px;padding:.55rem .72rem;background:#FFFFFF}
+.status-chip{border-color:transparent}
+.status-chip.not_started{background:#EDF2FF;color:#5970A7}
+.status-chip.in_progress{background:#EAF6FF;color:#1577A5}
+.status-chip.blocked{background:#FFF2E6;color:#B86A00}
+.status-chip.done{background:#EAF7EE;color:#1D8355}
+.status-chip.shipped{background:#EEF4FF;color:#2D64D9}
+.status-chip.reviewed{background:#F2EDFF;color:#6A57CC}
+.evidence-panel,.review-panel{display:grid;gap:.7rem}
+.evidence-panel{padding:.85rem;border:1px dashed var(--border);border-radius:14px;background:rgba(255,255,255,0.82)}
+.evidence-textarea{min-height:86px;resize:vertical}
+.review-textarea{min-height:92px;resize:vertical}
+.evidence-links a{font-size:12px;color:#245fc7;text-decoration:none}
+.evidence-links a:hover{text-decoration:underline}
+.empty-state{text-align:center;padding:1.6rem}
+.empty-title{font-family:'Syne',sans-serif;font-size:1.3rem;line-height:1.1;margin-bottom:.4rem}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#CBD8F8;border-radius:3px}
+@media(max-width:980px){
+  .hero-grid,.filter-row,.evidence-grid,.review-grid,.task-grid{grid-template-columns:1fr}
+  .wcard.open .dgrid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .header{padding:1.7rem 1rem 1.2rem;border-radius:18px;margin-top:.7rem}
+  .nav-inner{padding:.68rem 1rem}
+  .rotbar{padding:.75rem 1rem .25rem}
+  .content{padding:1.05rem}
+  .sub{font-size:14px}
+  .wdates{display:none}
+  .roadmap{padding-left:1.65rem}
+  .roadmap:before{left:.45rem}
+  .wcard::before{left:-1.26rem}
+  .whdr{padding:.9rem .9rem}
+  .dgrid{padding:0 .85rem .9rem}
+  .week-summary{margin:0 .85rem .85rem}
+  .week-metrics{justify-content:flex-start}
+  .task-actions{flex-direction:column;align-items:stretch}
+  .status-select{max-width:none}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="eyebrow">Ser Vonte &nbsp;·&nbsp; Apr 2026 — Oct 2026 &nbsp;·&nbsp; 24 Weeks</div>
+  <h1>The <span>Roadmap</span></h1>
+  <p class="sub">Four tracks. One rotating daily schedule. One north star: senior tech manager within 5 years. ML Engineering · AI Engineering · Software Engineering · Full Stack Dev.</p>
+  <div class="legend">
+    <div class="leg"><div class="legdot" style="background:var(--se)"></div><span class="leglabel">System Design / SE</span></div>
+    <div class="leg"><div class="legdot" style="background:var(--ml)"></div><span class="leglabel">ML Engineering</span></div>
+    <div class="leg"><div class="legdot" style="background:var(--fs)"></div><span class="leglabel">Full Stack Dev</span></div>
+    <div class="leg"><div class="legdot" style="background:var(--ai)"></div><span class="leglabel">AI Engineering</span></div>
+    <div class="leg"><div class="legdot" style="background:var(--dsa)"></div><span class="leglabel">DSA / CS Theory</span></div>
+    <div class="leg"><div class="legdot" style="background:var(--prj)"></div><span class="leglabel">Build / Project</span></div>
+    <div class="leg"><div class="legdot" style="background:var(--read)"></div><span class="leglabel">Reading / Theory</span></div>
+  </div>
+</div>
+<div class="nav">
+  <div class="nav-inner">
+    <button type="button" class="tab active" onclick="setPhase(1)"><span class="tnum">01</span>FOUNDATIONS</button>
+    <button type="button" class="tab" onclick="setPhase(2)"><span class="tnum">02</span>DEPTH</button>
+    <button type="button" class="tab" onclick="setPhase(3)"><span class="tnum">03</span>INTEGRATION</button>
+    <button type="button" class="tab" onclick="setPhase(4)"><span class="tnum">04</span>SENIOR LEVEL</button>
+    <button type="button" class="tab" onclick="setPhase(5)"><span class="tnum">&#9654;</span>READING LIST</button>
+  </div>
+</div>
+<div class="rotbar">
+  <div class="rotbar-inner">
+    <div class="rottitle">Weekly rotation — same structure every week, content evolves per phase</div>
+    <div class="rotdays">
+      <div class="rotday"><span class="rotday-lbl">MON</span><span style="color:var(--se);font-weight:500">System Design</span></div>
+      <div class="rotday"><span class="rotday-lbl">TUE</span><span style="color:var(--ml);font-weight:500">ML Engineering</span></div>
+      <div class="rotday"><span class="rotday-lbl">WED</span><span style="color:var(--fs);font-weight:500">Full Stack Dev</span></div>
+      <div class="rotday"><span class="rotday-lbl">THU</span><span style="color:var(--ai);font-weight:500">AI Engineering</span></div>
+      <div class="rotday"><span class="rotday-lbl">FRI</span><span style="color:var(--dsa);font-weight:500">DSA / Algorithms</span></div>
+      <div class="rotday"><span class="rotday-lbl">SAT</span><span style="color:var(--prj);font-weight:500">Build / Project</span></div>
+      <div class="rotday"><span class="rotday-lbl">SUN</span><span style="color:var(--read);font-weight:500">Reading / Theory</span></div>
+    </div>
+  </div>
+</div>
+<div class="content" id="main"></div>
+<script>
+const C={se:'#22B07D',ml:'#4AADEA',fs:'#F5A623',ai:'#A08FEE',dsa:'#E06890',prj:'#7A8A80',read:'#8A8280'};
+const PL={fm:'Frontend Masters',dc:'DataCamp',ed:'Educative',bd:'Boot.dev',ms:'Microsoft',free:'Free Resource',prj:'Project',cx:'Codedex'};
+const BC={fm:'bfm',dc:'bdc',ed:'bed',bd:'bbd',ms:'bms',free:'bfree',prj:'bprj',cx:'bfree'};
+const TRACKS={
+se:{name:'System Design / SE'},
+ml:{name:'ML Engineering'},
+fs:{name:'Full Stack Dev'},
+ai:{name:'AI Engineering'},
+dsa:{name:'DSA / Algorithms'},
+prj:{name:'Build / Project'},
+read:{name:'Reading / Theory'},
+};
+const PHASES={
+1:{name:'Phase 01 — Foundations',dates:'Apr 19 – May 30',goal:'Lock in fundamentals across all 4 tracks simultaneously. Finish DP-100 cert (Apr 21). Hit 100% on DataCamp ML Engineer track and claim that cert. Build the daily study habit while wrapping up the internship.'},
+2:{name:'Phase 02 — Depth',dates:'Jun 1 – Jul 11',goal:'Post-internship full lockdown mode. 9-10 hrs/week available. Kubernetes, MLOps pipelines, distributed systems theory, LangChain RAG systems. Start shipping production Odysseus features.'},
+3:{name:'Phase 03 — Integration',dates:'Jul 12 – Aug 22',goal:'Cross-track integration week over week. Build features combining ML + FS + AI. Target Google Cloud cert. Ship first open source PR. Launch WTF Do I Eat MVP via Capacitor.'},
+4:{name:'Phase 04 — Senior Level',dates:'Aug 23 – Oct 3',goal:'Staff+ thinking, C4 architecture diagrams, ADRs, technical blog posts, leadership frameworks. All projects live. Portfolio complete. Ready for mid-level to senior engineer applications.'},
+};
+const W=[
+{w:1,p:1,dates:'Apr 19-25',title:'DP-100 Exam + Roadmap Kickoff',focus:'Keep Mon-Tue focused on exam prep; sit DP-100 Apr 21, then full rotation starts',days:[
+{d:'Mon',t:'se',a:'Backend System Design — FM',pl:'fm',th:'CAP theorem, reliability fundamentals, distributed system tradeoffs, fault tolerance patterns',h:'1.5h'},
+{d:'Tue',t:'ml',a:'DP-100 final review session',pl:'ms',th:'Azure ML workspace, compute clusters, endpoint deployment, model monitoring configuration',h:'1.5h'},
+{d:'Wed',t:'ml',a:'DP-100 EXAM @ 10pm',pl:'ms',th:'Light reading in the morning. Rest the afternoon. Exam at night.',h:'1h',exam:true},
+{d:'Thu',t:'fs',a:'TypeScript 5+ Fundamentals — FM',pl:'fm',th:'Generics, utility types, discriminated unions, type narrowing, conditional types depth',h:'1.5h'},
+{d:'Fri',t:'ai',a:'MCP Fundamentals for AI Agents — Educative',pl:'ed',th:'What is an AI agent? ReAct pattern, tool calling mechanics, memory types, agent loops',h:'1.5h'},
+{d:'Sat',t:'dsa',a:'Boot.dev — Trees and Graphs',pl:'bd',th:'BFS, DFS, tree traversals, Big-O review, space-time tradeoff intuition',h:'1.5h'},
+{d:'Sun',t:'read',a:'DDIA Chapter 1 + Karpathy Zero to Hero Ep 1',pl:'free',th:'Reliable, scalable, maintainable systems intro; backpropagation intuition from first principles',h:'1h'},
+]},
+{w:2,p:1,dates:'Apr 26-May 2',title:'System Design Depth + ML Acceleration',focus:'DataCamp ML track to 50%; load balancing, CDN, scaling patterns',days:[
+{d:'Mon',t:'se',a:'Backend System Design cont — FM',pl:'fm',th:'Load balancing L4 vs L7, CDN strategies, horizontal vs vertical scaling, stateless service design',h:'1.5h'},
+{d:'Tue',t:'ml',a:'DataCamp ML Engineer (to 50%)',pl:'dc',th:'Feature engineering pipelines, cross-validation strategies, F1/AUC-ROC/precision-recall tradeoffs',h:'1.5h'},
+{d:'Wed',t:'fs',a:'API Design in Node.js v5 — FM',pl:'fm',th:'REST principles, versioning strategies, API contracts, idempotency, Fastify review',h:'1.5h'},
+{d:'Thu',t:'ai',a:'AI Agents Fundamentals — FM',pl:'fm',th:'Agent loops, multi-step tool use, orchestration patterns, agent memory and state management',h:'1.5h'},
+{d:'Fri',t:'dsa',a:'Boot.dev — Recursion and Dynamic Programming',pl:'bd',th:'Memoization vs tabulation, overlapping subproblems, LRU cache implementation from scratch',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — Redis caching layer',pl:'prj',th:'Cache AI responses per student context using caching patterns from system design study',h:'2h'},
+{d:'Sun',t:'read',a:'DDIA Ch 2 + Made with ML data engineering intro',pl:'free',th:'Relational vs document vs graph data models; data engineering fundamentals and pipeline patterns',h:'1h'},
+]},
+{w:3,p:1,dates:'May 3-9',title:'Patterns Deep Dive + Docker Mastery',focus:'Consistent hashing, sharding, Docker internals, gradient boosting methods',days:[
+{d:'Mon',t:'se',a:'System Design Fundamentals — Educative',pl:'ed',th:'Consistent hashing ring, sharding strategies, replication, read replicas, write-ahead log',h:'1.5h'},
+{d:'Tue',t:'ml',a:'DataCamp ML Engineer (to 65%)',pl:'dc',th:'Decision trees, random forests, gradient boosting: XGBoost and LightGBM internal mechanics',h:'1.5h'},
+{d:'Wed',t:'fs',a:'Complete Intro to Containers — FM',pl:'fm',th:'Docker networking, volumes, multi-stage builds, compose patterns, image layer optimization',h:'1.5h'},
+{d:'Thu',t:'ai',a:'Generative AI concepts — Educative',pl:'ed',th:'Transformer architecture, self-attention mechanism, tokenization, positional encoding intuition',h:'1.5h'},
+{d:'Fri',t:'dsa',a:'Mastering Algorithms in Python — Educative',pl:'ed',th:'Divide and conquer, merge sort depth, binary search variations, master theorem application',h:'1.5h'},
+{d:'Sat',t:'prj',a:'KombiTracker — PostGIS schema + Dockerize',pl:'prj',th:'Apply Docker plus PostGIS: geospatial route schema design, Africa\'s Talking OTP setup',h:'2h'},
+{d:'Sun',t:'read',a:'The Pragmatic Programmer Ch 1-4',pl:'free',th:'DRY principle, orthogonality, tracer bullets, prototyping mindset, software entropy concept',h:'1h'},
+]},
+{w:4,p:1,dates:'May 10-16',title:'Event Architecture + Neural Nets Intro',focus:'Message queues, CQRS, Next.js App Router, backprop mechanics',days:[
+{d:'Mon',t:'se',a:'System Design — Message Queues and Event Sourcing',pl:'ed',th:'Kafka pub/sub patterns, CQRS, event sourcing vs CRUD, at-least-once delivery guarantees',h:'1.5h'},
+{d:'Tue',t:'ml',a:'DataCamp ML Engineer (to 80%)',pl:'dc',th:'Neural network basics, backpropagation step by step, activation functions, vanishing gradients',h:'1.5h'},
+{d:'Wed',t:'fs',a:'Next.js Fundamentals v4 — FM',pl:'fm',th:'App Router, SSR vs SSG vs ISR, React Server Components, layouts, loading state patterns',h:'1.5h'},
+{d:'Thu',t:'ai',a:'Associate AI Engineer for Developers — DataCamp',pl:'dc',th:'OpenAI API integration, embeddings, function calling, AI architecture integration patterns',h:'1.5h'},
+{d:'Fri',t:'dsa',a:'Boot.dev — Graph Algorithms',pl:'bd',th:'Dijkstra, Bellman-Ford, topological sort, minimum spanning tree with Kruskal and Prim',h:'1.5h'},
+{d:'Sat',t:'prj',a:'WTF Do I Eat — Next.js scaffold',pl:'prj',th:'App Router setup, Tailwind, Capacitor native build target, mood input UI component',h:'2h'},
+{d:'Sun',t:'read',a:'Karpathy makemore series + fast.ai Lesson 1',pl:'free',th:'Bigram language models, neural LMs, practical deep learning from the top down',h:'1h'},
+]},
+{w:5,p:1,dates:'May 17-23',title:'ML Track Sprint + RAG Architecture',focus:'DataCamp ML to 95%; MLOps concepts; vector stores and semantic search',days:[
+{d:'Mon',t:'se',a:'System Design — Database Selection and Indexing',pl:'ed',th:'SQL vs NoSQL decision framework, B-tree vs LSM tree indexes, EXPLAIN ANALYZE, query plans',h:'1.5h'},
+{d:'Tue',t:'ml',a:'DataCamp ML Engineer (to 95%)',pl:'dc',th:'MLOps intro: model serving, monitoring, drift detection, CI/CD pipelines for ML workflows',h:'1.5h'},
+{d:'Wed',t:'fs',a:'Intermediate Next.js — FM',pl:'fm',th:'Server actions, RSC streaming, Suspense, partial prerendering, parallel and intercepted routes',h:'1.5h'},
+{d:'Thu',t:'ai',a:'Associate AI Engineer — RAG architecture',pl:'dc',th:'Vector stores, semantic search, RAG pipeline design, chunking strategies, reranking basics',h:'1.5h'},
+{d:'Fri',t:'dsa',a:'Boot.dev — Sorting and Hash Tables',pl:'bd',th:'QuickSort, HeapSort analysis, hash collision resolution, open addressing vs chaining tradeoffs',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — AI tutoring suggestion feature',pl:'prj',th:'OpenAI embeddings plus pgvector: context-aware tutoring prompts generated per student topic',h:'2h'},
+{d:'Sun',t:'read',a:'DDIA Ch 3 (Storage and Retrieval) + Simon Willison blog',pl:'free',th:'LSM trees vs B-trees, SSTables, Bloom filters; LLM tool use patterns in production systems',h:'1h'},
+]},
+{w:6,p:1,dates:'May 24-30',title:'Phase 1 Capstone + Internship Final Week',focus:'DataCamp ML Engineer CERT. Ship KombiTracker v0.1. Phase retro.',days:[
+{d:'Mon',t:'se',a:'System Design Interview Cases — Educative',pl:'ed',th:'Design URL shortener and rate limiter as architectural case studies not interview prep',h:'1.5h'},
+{d:'Tue',t:'ml',a:'DataCamp ML Engineer — 100% and CERT',pl:'dc',th:'Final certification exam. Post to LinkedIn immediately. Screenshot and tweet it.',h:'2h'},
+{d:'Wed',t:'fs',a:'Build a Fullstack Next.js App — FM',pl:'fm',th:'End-to-end type safety with Zod, server actions, tRPC patterns, database wiring',h:'1.5h'},
+{d:'Thu',t:'ai',a:'Prompt engineering depth — Anthropic docs',pl:'free',th:'Chain-of-thought, few-shot examples, structured outputs, system prompt design, safety',h:'1.5h'},
+{d:'Fri',t:'dsa',a:'Boot.dev — final assessments and pattern review',pl:'bd',th:'All DSA patterns: complexity analysis, pattern recognition across problem categories',h:'1.5h'},
+{d:'Sat',t:'prj',a:'KombiTracker v0.1 — deploy and ship',pl:'prj',th:'Ship it even rough. Real users. Real feedback. Momentum matters more than polish.',h:'2h'},
+{d:'Sun',t:'read',a:'Chip Huyen AI Engineering Ch 1-2 + Phase 1 retro',pl:'free',th:'AI engineering vs ML engineering distinction; write your Phase 1 retrospective document',h:'1h'},
+]},
+{w:7,p:2,dates:'Jun 1-7',title:'Post-Internship Lockdown Begins',focus:'9-10 hrs/week now available. Cloud infrastructure and MLOps depth.',days:[
+{d:'Mon',t:'se',a:'Cloud Infrastructure Startup to Scale — FM',pl:'fm',th:'Multi-region architecture, autoscaling policies, CDN config, cost modeling, DO vs AWS tradeoffs',h:'2h'},
+{d:'Tue',t:'ml',a:'Machine Learning Scientist in Python — DC',pl:'dc',th:'Supervised learning depth: SVMs, ensemble stacking, advanced feature selection techniques',h:'2h'},
+{d:'Wed',t:'fs',a:'Fullstack TypeScript with Zod — FM',pl:'fm',th:'End-to-end type safety, Zod schema inference, tRPC setup, runtime validation patterns',h:'2h'},
+{d:'Thu',t:'ai',a:'Associate AI Engineer for Data Scientists — DC',pl:'dc',th:'Fine-tuning LLMs, LoRA concepts, Hugging Face ecosystem overview, model evaluation methods',h:'2h'},
+{d:'Fri',t:'dsa',a:'Mastering Algorithms in C++ — Educative',pl:'ed',th:'Pointers, memory management, STL containers, template classes, iterator design patterns',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — per-user rate limiting on AI endpoints',pl:'prj',th:'Redis sliding window counter per user. Fix the security gap identified in the audit.',h:'2h'},
+{d:'Sun',t:'read',a:'DDIA Ch 5-6 (Replication and Partitioning)',pl:'free',th:'Leader-follower replication, consistency models, range vs hash partitioning strategies',h:'1h'},
+]},
+{w:8,p:2,dates:'Jun 8-14',title:'Kubernetes + ML Model Serving',focus:'Container orchestration, deploy ML inference APIs, React state architecture',days:[
+{d:'Mon',t:'se',a:'Kubernetes Workshop — FM',pl:'fm',th:'Pods, Deployments, Services, Ingress, ConfigMaps, Secrets, resource limits, HPA autoscaling',h:'2h'},
+{d:'Tue',t:'ml',a:'ML deployment — FastAPI + Docker + model serving',pl:'free',th:'FastAPI inference endpoint, ONNX export, model optimization for serving latency, health checks',h:'2h'},
+{d:'Wed',t:'fs',a:'State Management at Scale — FM',pl:'fm',th:'React Query, Zustand, server vs client state boundary, optimistic updates, stale-while-revalidate',h:'2h'},
+{d:'Thu',t:'ai',a:'Hugging Face transformers — fine-tuning in practice',pl:'free',th:'Dataset prep, LoRA and QLoRA config, PEFT library, training loop, checkpoint management',h:'2h'},
+{d:'Fri',t:'dsa',a:'Data Structures Generic Types in C++ — Educative',pl:'ed',th:'Skip lists, AVL tree rotations, template specialization, custom allocators, STL internals',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Deploy ML inference API to DigitalOcean',pl:'prj',th:'FastAPI plus Docker on DO App Platform: HTTPS, env vars, monitoring endpoint, rollback',h:'2h'},
+{d:'Sun',t:'read',a:'fast.ai Lessons 3-4 + Designing ML Systems Ch 1',pl:'free',th:'Collaborative filtering, tabular data models; ML system design scope and framing',h:'1h'},
+]},
+{w:9,p:2,dates:'Jun 15-21',title:'Distributed Systems + Deep Learning Math',focus:'Raft consensus, Karpathy nanoGPT from scratch, React profiling',days:[
+{d:'Mon',t:'se',a:'Distributed Systems Theory — DDIA + papers',pl:'free',th:'Raft consensus, Paxos overview, linearizability vs eventual consistency, vector clocks',h:'2h'},
+{d:'Tue',t:'ml',a:'Deep learning — Karpathy nanoGPT series',pl:'free',th:'Attention from scratch, transformer in ~300 lines of Python, cross-entropy loss derivation',h:'2h'},
+{d:'Wed',t:'fs',a:'React Performance v2 — FM',pl:'fm',th:'React DevTools profiler, memo boundaries, useMemo and useCallback, code splitting strategies',h:'2h'},
+{d:'Thu',t:'ai',a:'Vector databases — pgvector and Pinecone concepts',pl:'free',th:'Embedding types, cosine similarity math, HNSW index structure, ANN search tradeoffs',h:'2h'},
+{d:'Fri',t:'dsa',a:'Advanced trees — AVL, Red-Black, Heaps',pl:'bd',th:'Rotation mechanics, heap property maintenance, priority queue apps, heapify algorithm',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — pgvector for tutoring context retrieval',pl:'prj',th:'Semantic search over past sessions; surface relevant curriculum per student topic automatically',h:'2h'},
+{d:'Sun',t:'read',a:'"Attention Is All You Need" summary + DDIA Ch 7',pl:'free',th:'Transformer key ideas: multi-head attention, positional encoding; ACID and isolation levels',h:'1h'},
+]},
+{w:10,p:2,dates:'Jun 22-28',title:'Data Engineering + LangChain RAG',focus:'ETL pipelines, feature stores, DVC, LangChain chains and retrievers',days:[
+{d:'Mon',t:'se',a:'Data Engineer in Python — DC selected modules',pl:'dc',th:'ETL pipeline design, Airflow DAG patterns, data quality checks, orchestration architecture',h:'2h'},
+{d:'Tue',t:'ml',a:'Feature stores, DVC, training pipeline design',pl:'free',th:'Data versioning, feature drift, training vs serving skew prevention, pipeline reproducibility',h:'2h'},
+{d:'Wed',t:'fs',a:'Auth patterns depth — OAuth 2.0 and JWT internals',pl:'fm',th:'Authorization code flow, PKCE, refresh token rotation, JWK sets, secure session management',h:'2h'},
+{d:'Thu',t:'ai',a:'LangChain fundamentals — chains, agents, RAG',pl:'free',th:'Document loaders, retriever types, memory patterns, conversational RAG, LCEL syntax',h:'2h'},
+{d:'Fri',t:'dsa',a:'Dynamic programming mastery — LeetCode medium',pl:'free',th:'Knapsack variations, LCS, coin change, DP on trees, interval DP pattern library',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — RAG system for tutoring knowledge base',pl:'prj',th:'LangChain plus pgvector plus Fastify endpoint: context-aware tutoring from curriculum docs',h:'2h'},
+{d:'Sun',t:'read',a:'Chip Huyen AI Engineering Ch 3-4 + DDIA Ch 8',pl:'free',th:'Model evaluation methodology, AI system reliability; distributed failure modes and recovery',h:'1h'},
+]},
+{w:11,p:2,dates:'Jun 29-Jul 5',title:'Event-Driven Depth + LLMOps',focus:'Outbox pattern, saga pattern, MLflow tracking, structured LLM evals',days:[
+{d:'Mon',t:'se',a:'Event-driven architecture — Kafka patterns depth',pl:'free',th:'Outbox pattern, saga choreography vs orchestration, idempotent consumers, dead letter queues',h:'2h'},
+{d:'Tue',t:'ml',a:'MLflow — experiment tracking and model registry',pl:'free',th:'Run tracking, artifact storage, model lifecycle stages, A/B model deployment, custom metrics',h:'2h'},
+{d:'Wed',t:'fs',a:'Enterprise UI Development — FM',pl:'fm',th:'Testing pyramid: unit, integration, E2E; component architecture; Playwright and Vitest setup',h:'2h'},
+{d:'Thu',t:'ai',a:'Prompt engineering — structured outputs and eval harnesses',pl:'free',th:'JSON mode, tool schemas, few-shot templates, evaluation framework, LLM-as-judge pattern',h:'2h'},
+{d:'Fri',t:'dsa',a:'Graph algorithms — Dijkstra, MST, topological sort',pl:'ed',th:'Dijkstra with heap optimization, Kruskal and Prim, Kahn algorithm, cycle detection',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — MLflow tracking for AI feature experiments',pl:'prj',th:'Track prompt versions, response quality scores, token costs, latency distributions per run',h:'2h'},
+{d:'Sun',t:'read',a:'Production LLM patterns blog + Simon Willison',pl:'free',th:'Semantic caching, fallback strategies, cost optimization, observability and tracing in prod',h:'1h'},
+]},
+{w:12,p:2,dates:'Jul 6-11',title:'Phase 2 Integration Capstone',focus:'Full architecture doc. ML system design timed mock. Ship AI feature.',days:[
+{d:'Mon',t:'se',a:'Architecture review — design Odysseus v2 from scratch',pl:'prj',th:'Full system design doc: services, data flow, API contracts, scaling plan, tradeoff table',h:'2h'},
+{d:'Tue',t:'ml',a:'ML system design mock — recommendation engine',pl:'free',th:'Feature engineering, model choice, serving architecture, monitoring plan (45-min timed)',h:'2h'},
+{d:'Wed',t:'fs',a:'WTF Do I Eat — mood AI feature + UI polish',pl:'prj',th:'OpenAI integration, mood to restaurant category mapping, filter logic, animation polish',h:'2h'},
+{d:'Thu',t:'ai',a:'LangGraph intro — stateful agent workflows',pl:'free',th:'Graph-based agent loops, state machine for LLM workflows, conditional routing, persistence',h:'2h'},
+{d:'Fri',t:'dsa',a:'Timed DSA mock session — 2 hours',pl:'free',th:'Mixed: trees, DP, graphs. Practice explaining thought process aloud at each step.',h:'2h'},
+{d:'Sat',t:'prj',a:'Ship AI feature to production — Odysseus',pl:'prj',th:'Full deploy: CI/CD, smoke tests, monitoring, rollback plan. Done over perfect.',h:'2h'},
+{d:'Sun',t:'read',a:'The Staff Engineers Path intro + Phase 2 retro',pl:'free',th:'Staff+ scope and influence without authority. Write your Phase 2 retrospective doc.',h:'1h'},
+]},
+{w:13,p:3,dates:'Jul 12-18',title:'Cloud Certification + AI Product Design',focus:'Google Cloud track, AWS frontend, AI product UX thinking',days:[
+{d:'Mon',t:'se',a:'Google Associate Cloud Engineer — DC track',pl:'dc',th:'GCP compute, networking, IAM, Cloud Run vs GKE, load balancing, Cloud SQL setup',h:'2h'},
+{d:'Tue',t:'ml',a:'Time series forecasting + NLP fundamentals',pl:'dc',th:'ARIMA, Prophet, LSTM for sequences; tokenization, word embeddings, BERT intuition',h:'2h'},
+{d:'Wed',t:'fs',a:'AWS for Frontend Engineers — FM',pl:'fm',th:'S3 plus CloudFront CDN, Lambda@Edge, IAM policies, presigned URLs, WAF basics',h:'2h'},
+{d:'Thu',t:'ai',a:'AI product design — UX and evaluation frameworks',pl:'free',th:'Human-in-the-loop design, latency expectations, graceful degradation, AI error UX patterns',h:'2h'},
+{d:'Fri',t:'dsa',a:'String algorithms — sliding window and two pointers',pl:'free',th:'Longest substring patterns, palindrome detection, anagram problems, window shrink logic',h:'1.5h'},
+{d:'Sat',t:'prj',a:'KombiTracker — real-time features with WebSockets',pl:'prj',th:'WebSocket server with Fastify, live route status updates, Africa\'s Talking OTP wiring',h:'2h'},
+{d:'Sun',t:'read',a:'Designing ML Systems Ch 1-3 (Chip Huyen)',pl:'free',th:'ML systems overview, project scoping framework, data engineering for ML pipelines',h:'1h'},
+]},
+{w:14,p:3,dates:'Jul 19-25',title:'Infrastructure as Code + Advanced Prompting',focus:'Terraform fundamentals, CV transfer learning, serverless edge functions',days:[
+{d:'Mon',t:'se',a:'Infrastructure as Code — Terraform fundamentals',pl:'free',th:'HCL syntax, providers, modules, remote state, drift detection, plan and apply workflow',h:'2h'},
+{d:'Tue',t:'ml',a:'Computer vision — transfer learning and ResNet fine-tuning',pl:'free',th:'CNN architecture intuition, ImageNet pretraining strategy, fine-tuning, data augmentation',h:'2h'},
+{d:'Wed',t:'fs',a:'Serverless Functions — FM',pl:'fm',th:'Edge functions, cold start mitigation, Vercel and Netlify patterns, global latency routing',h:'2h'},
+{d:'Thu',t:'ai',a:'Advanced prompting — function schemas and eval harnesses',pl:'free',th:'Structured tool schemas, multi-turn reasoning, eval harnesses, prompt regression testing',h:'2h'},
+{d:'Fri',t:'dsa',a:'Bit manipulation and mathematical algorithms',pl:'free',th:'XOR tricks, power-of-two checks, sieve of Eratosthenes, fast modular exponentiation',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus CI/CD — GitHub Actions improvements',pl:'prj',th:'Job parallelization, dependency caching, deploy gates, smoke test stage, Slack notifications',h:'2h'},
+{d:'Sun',t:'read',a:'DDIA Ch 10-11 (Batch and Stream Processing)',pl:'free',th:'MapReduce patterns, stream processing, Lambda vs Kappa architecture tradeoffs',h:'1h'},
+]},
+{w:15,p:3,dates:'Jul 26-Aug 1',title:'Security Architecture + Semantic Search Depth',focus:'Threat modeling, OWASP, RAGAS evaluation, advanced React patterns',days:[
+{d:'Mon',t:'se',a:'Security Architecture — OWASP and zero-trust',pl:'ed',th:'STRIDE threat model, injection prevention, mTLS, secrets management, zero-trust principles',h:'2h'},
+{d:'Tue',t:'ml',a:'Recommendation systems — collaborative filtering depth',pl:'dc',th:'Matrix factorization, ALS algorithm, cold start problem, hybrid CF plus content approaches',h:'2h'},
+{d:'Wed',t:'fs',a:'React + TypeScript advanced patterns — FM',pl:'fm',th:'Compound components, render props, HOCs, context optimization, Suspense boundary design',h:'2h'},
+{d:'Thu',t:'ai',a:'Semantic search — hybrid retrieval and RAG evaluation',pl:'free',th:'BM25 plus dense hybrid search, cross-encoder reranking, RAGAS faithfulness and relevance',h:'2h'},
+{d:'Fri',t:'dsa',a:'Backtracking — N-Queens, sudoku, constraint satisfaction',pl:'free',th:'State space tree, pruning strategies, constraint propagation, backtracking template patterns',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — full security audit fixes',pl:'prj',th:'Production startup assertions, refresh token rotation docs, CORS config, browser key fix',h:'2h'},
+{d:'Sun',t:'read',a:'Securing REST APIs (Educative) + Password Security (Educative)',pl:'ed',th:'API security patterns, bcrypt vs argon2, secure token storage, rate limiting strategies',h:'1h'},
+]},
+{w:16,p:3,dates:'Aug 2-8',title:'System Design Mastery + ML Monitoring',focus:'Netflix, Uber, WhatsApp case studies. Drift detection. D3.js.',days:[
+{d:'Mon',t:'se',a:'System Design cases — Netflix, Uber, WhatsApp',pl:'ed',th:'Netflix: CDN plus adaptive bitrate. Uber: geospatial indexing. WhatsApp: message ordering.',h:'2h'},
+{d:'Tue',t:'ml',a:'ML monitoring — drift detection and alerting',pl:'free',th:'Concept drift vs data drift, Evidently library, Great Expectations, alerting threshold setup',h:'2h'},
+{d:'Wed',t:'fs',a:'D3.js and Data Visualization — FM',pl:'fm',th:'SVG, scales, axes, data joins, transitions, force-directed layouts, geographic projections',h:'2h'},
+{d:'Thu',t:'ai',a:'Multi-agent systems — CrewAI and orchestration',pl:'free',th:'Role-based agents, inter-agent communication, shared memory, reliability and fallback patterns',h:'2h'},
+{d:'Fri',t:'dsa',a:'LeetCode medium/hard — timed 2-hour session',pl:'free',th:'Pattern recognition speed. Explain thought process aloud. Time each problem individually.',h:'2h'},
+{d:'Sat',t:'prj',a:'KombiTracker — route visualization with D3.js',pl:'prj',th:'Cape Town minibus route heatmap, live crowdsource overlay, SVG transition animations',h:'2h'},
+{d:'Sun',t:'read',a:'Clean Architecture Ch 1-5 (Uncle Bob)',pl:'free',th:'SOLID principles, clean architecture dependency rule, plugin architecture, component coupling',h:'1h'},
+]},
+{w:17,p:3,dates:'Aug 9-15',title:'Open Source First PR + Ship WTF Do I Eat',focus:'First open source contribution. AutoML. Ship the app on iOS and Android.',days:[
+{d:'Mon',t:'se',a:'Open source — navigate codebase and find first issue',pl:'free',th:'Fastify or Drizzle ORM: understand project structure, conventions, contribution workflow',h:'2h'},
+{d:'Tue',t:'ml',a:'AutoML — Optuna and hyperparameter optimization',pl:'free',th:'Bayesian optimization, Tree-structured Parzen Estimator, search space design, early stopping',h:'2h'},
+{d:'Wed',t:'fs',a:'WebGL and shaders intro — FM',pl:'fm',th:'GLSL basics, vertex and fragment shaders, uniforms, creative visual coding techniques',h:'1.5h'},
+{d:'Thu',t:'ai',a:'Evaluation-driven development — LLM benchmarking',pl:'free',th:'RAGAS framework, BLEU/ROUGE limitations, human eval setup, prompt regression test suite',h:'2h'},
+{d:'Fri',t:'dsa',a:'Segment trees, Fenwick trees, range queries',pl:'free',th:'Range sum queries, point updates, BIT construction O(n), range minimum query patterns',h:'1.5h'},
+{d:'Sat',t:'prj',a:'WTF Do I Eat — ship MVP with Capacitor',pl:'prj',th:'Capacitor build for iOS and Android, native plugins, App Store submission checklist',h:'3h'},
+{d:'Sun',t:'read',a:'The Pragmatic Programmer Ch 5-8',pl:'free',th:'Bend or break, while you are coding, before the project, pragmatic projects mindset',h:'1h'},
+]},
+{w:18,p:3,dates:'Aug 16-22',title:'Performance Optimization + Phase 3 Capstone',focus:'DB profiling, QLoRA fine-tuning, bundle optimization, phase review',days:[
+{d:'Mon',t:'se',a:'Performance engineering — profiling and DB optimization',pl:'free',th:'Flamegraphs, N+1 query detection, EXPLAIN ANALYZE depth, connection pooling, pg_stat_statements',h:'2h'},
+{d:'Tue',t:'ml',a:'Fine-tuning in practice — QLoRA with Unsloth',pl:'free',th:'ShareGPT dataset format, training args, gradient checkpointing, checkpoint saving and eval',h:'2h'},
+{d:'Wed',t:'fs',a:'Bundle optimization — lazy loading and Core Web Vitals',pl:'fm',th:'LCP, CLS, INP targets, route-based splitting, prefetching strategies, image optimization',h:'2h'},
+{d:'Thu',t:'ai',a:'Designing ML Systems Ch 7-8 — Feature Engineering',pl:'free',th:'Feature crosses, temporal train-test splits, label leakage detection, training data quality',h:'2h'},
+{d:'Fri',t:'dsa',a:'Design patterns in TypeScript — GoF applied',pl:'free',th:'Factory, Observer, Strategy, Decorator patterns in TypeScript: when to use and tradeoffs',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — performance profile and fix top 3 bottlenecks',pl:'prj',th:'Profile queries, reduce JS bundle, PgBouncer connection pool, measure before and after',h:'2h'},
+{d:'Sun',t:'read',a:'Designing ML Systems Ch 9 + Phase 3 retro',pl:'free',th:'Continual learning, data flywheels, online learning concepts. Write Phase 3 retrospective.',h:'1h'},
+]},
+{w:19,p:4,dates:'Aug 23-29',title:'Staff+ Thinking Begins',focus:'Become Highest Paid Engineer course. ADRs. AI governance. Design systems.',days:[
+{d:'Mon',t:'se',a:'Become the Highest Paid Engineer — Educative',pl:'ed',th:'Staff+ operating model, safe AI integration, crisis leadership, scope expansion strategies',h:'2h'},
+{d:'Tue',t:'ml',a:'ML strategy — build vs buy, model selection frameworks',pl:'free',th:'When to fine-tune vs prompt, OSS vs API tradeoffs, cost-quality curves, team capability fit',h:'2h'},
+{d:'Wed',t:'fs',a:'Design Systems with Storybook — FM',pl:'fm',th:'Component libraries, accessibility standards, visual regression testing, documentation-as-code',h:'2h'},
+{d:'Thu',t:'ai',a:'AI governance — bias, fairness, explainability, EU AI Act',pl:'free',th:'SHAP values, fairness metrics: demographic parity and equalized odds, model cards, audit trails',h:'2h'},
+{d:'Fri',t:'dsa',a:'Amortized analysis and complexity theory depth',pl:'free',th:'Amortized O via potential method, P vs NP intuition, NP-hard problem recognition patterns',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Odysseus — write Architecture Decision Records',pl:'prj',th:'Document: DB choice, API design, auth strategy, AI integration. Public portfolio-ready format.',h:'2h'},
+{d:'Sun',t:'read',a:'The Staff Engineers Path Ch 2-3',pl:'free',th:'Technical execution at staff level, vision setting, mentorship, upward communication strategies',h:'1h'},
+]},
+{w:20,p:4,dates:'Aug 30-Sep 5',title:'C4 Architecture + ML System Design Mock',focus:'Public architecture docs, compiler internals, YouTube recommendations design',days:[
+{d:'Mon',t:'se',a:'Architecture documentation — C4 model for Odysseus',pl:'free',th:'Context to Container to Component to Code diagrams. Structurizr DSL. Make it shareable.',h:'2h'},
+{d:'Tue',t:'ml',a:'ML system design mock — YouTube Recommendations',pl:'free',th:'Two-tower model, candidate generation, ranking stage, serving infrastructure, eval metrics',h:'2h'},
+{d:'Wed',t:'fs',a:'Compiler building intro — FM advanced track',pl:'fm',th:'Tokenization, recursive descent parsing, ASTs, tree-walking interpreter fundamentals',h:'2h'},
+{d:'Thu',t:'ai',a:'Agents in production — reliability and cost management',pl:'free',th:'Retry with backoff, streaming fallbacks, cost-per-request budgets, token optimization',h:'2h'},
+{d:'Fri',t:'dsa',a:'Mock technical interview — DSA plus system design combo',pl:'free',th:'90-min simulation: 45 coding plus 45 system design. Record yourself and review the gaps.',h:'2h'},
+{d:'Sat',t:'prj',a:'Publish Odysseus C4 architecture diagrams publicly',pl:'prj',th:'Add to portfolio site. Shows architectural thinking to any hiring manager who visits.',h:'2h'},
+{d:'Sun',t:'read',a:'Clean Architecture Ch 6-10 + DDIA final chapters',pl:'free',th:'Screaming architecture, boundaries, future of data systems. Tie the whole roadmap together.',h:'1h'},
+]},
+{w:21,p:4,dates:'Sep 6-12',title:'Leadership + Technical Blog Post One',focus:'OKRs and roadmaps. ML paper reading habit. First published post.',days:[
+{d:'Mon',t:'se',a:'Engineering leadership — OKRs, roadmaps, stakeholder comms',pl:'free',th:'An Elegant Puzzle frameworks, tech debt negotiation, prioritization under uncertainty',h:'2h'},
+{d:'Tue',t:'ml',a:'Read 3 recent ML papers from Papers With Code',pl:'free',th:'Pick: multimodal, diffusion, or agent reasoning. Write a 3-sentence summary of each.',h:'2h'},
+{d:'Wed',t:'fs',a:'WTF Do I Eat — monetization implementation',pl:'prj',th:'Stripe subscription flow, feature gating, premium restaurant tier, revenue analytics dashboard',h:'2h'},
+{d:'Thu',t:'ai',a:'Building AI products — prototype to production checklist',pl:'free',th:'Eval setup, observability and tracing, safety checks, staged rollout, user feedback loop',h:'2h'},
+{d:'Fri',t:'dsa',a:'System design plus DSA hybrid problems',pl:'free',th:'Design and implement: LRU cache, distributed rate limiter, consistent hash ring from scratch',h:'2h'},
+{d:'Sat',t:'prj',a:'Write and publish technical blog post one',pl:'prj',th:'Topic: How I built a multi-tenant tutoring LMS with Fastify and PostgreSQL in production',h:'3h'},
+{d:'Sun',t:'read',a:'An Elegant Puzzle — Will Larson selected chapters',pl:'free',th:'Sizing engineering teams, managing technical debt, systems thinking for engineering managers',h:'1h'},
+]},
+{w:22,p:4,dates:'Sep 13-19',title:'SRE Concepts + Open Source PR',focus:'Error budgets, SLOs, ML open source contribution, LLM cost optimization',days:[
+{d:'Mon',t:'se',a:'SRE concepts — SLOs, SLIs, error budgets, postmortems',pl:'free',th:'Defining SLOs from user journeys, error budget policies, blameless postmortem structure',h:'2h'},
+{d:'Tue',t:'ml',a:'Contribute to ML open source — scikit-learn issue',pl:'free',th:'Find docs issue or small bug fix. Understand the codebase. Submit with tests.',h:'2h'},
+{d:'Wed',t:'fs',a:'UX Research for Engineers — FM',pl:'fm',th:'User testing methods, usability heuristics, turning feedback into feature requirements',h:'2h'},
+{d:'Thu',t:'ai',a:'LLM cost optimization — caching, batching, model routing',pl:'free',th:'Semantic caching with Redis, request batching, cheap vs expensive model routing logic',h:'2h'},
+{d:'Fri',t:'dsa',a:'Fastify or Drizzle ORM open source contribution prep',pl:'free',th:'Navigate the codebase. Find a real issue. Write the fix with tests and a clear description.',h:'2h'},
+{d:'Sat',t:'prj',a:'Submit open source PR — Fastify or Drizzle ORM',pl:'prj',th:'Polish it, write a clear PR description, respond to reviewer feedback professionally',h:'2h'},
+{d:'Sun',t:'read',a:'The Phoenix Project — finish it',pl:'free',th:'DevOps culture, Theory of Constraints, IT as business enabler. Read it like a manager.',h:'1h'},
+]},
+{w:23,p:4,dates:'Sep 20-26',title:'Portfolio Polish',focus:'Every project gets a case study. LinkedIn updated. Blog post two drafted.',days:[
+{d:'Mon',t:'se',a:'Portfolio — Odysseus architecture writeup and case study',pl:'prj',th:'Structure: problem, solution, technical decisions, tradeoffs, metrics, what you would change',h:'2h'},
+{d:'Tue',t:'ml',a:'Portfolio — Monte Carlo toolkit plus honours research writeup',pl:'prj',th:'Explain DeepSORT vs ByteTrack with YOLOv8 for a technical non-ML audience clearly',h:'2h'},
+{d:'Wed',t:'fs',a:'Portfolio site — all project case studies live',pl:'prj',th:'Each project: challenge, approach, tech stack, live demo, GitHub link, lessons learned',h:'2h'},
+{d:'Thu',t:'ai',a:'Portfolio — RAG system and AI features documented',pl:'prj',th:'Architecture diagram, design decisions, evaluation methodology, before and after metrics',h:'2h'},
+{d:'Fri',t:'dsa',a:'Final DSA pattern review — every major category',pl:'free',th:'Flash review: trees, graphs, DP, strings, sorting, complexity. Know them cold and fast.',h:'1.5h'},
+{d:'Sat',t:'prj',a:'Write and publish technical blog post two',pl:'prj',th:'Topic: Building a RAG tutoring system with pgvector, LangChain, and Fastify in production',h:'3h'},
+{d:'Sun',t:'read',a:'LinkedIn and GitHub full audit — update everything',pl:'prj',th:'New certs, blog posts, ADRs, open source PRs, architecture diagrams, updated project links',h:'1h'},
+]},
+{w:24,p:4,dates:'Sep 27-Oct 3',title:'Capstone and Launch Week',focus:'Everything deployed. Full system design doc. Plan the next 6 months.',days:[
+{d:'Mon',t:'se',a:'Full system design doc for Odysseus v2',pl:'prj',th:'Complete: requirements, capacity plan, architecture, data model, API specs, full tradeoffs doc',h:'2h'},
+{d:'Tue',t:'ml',a:'Final ML project — train and deploy end to end',pl:'prj',th:'Raw data to feature engineering to training to evaluation to FastAPI to Docker to DO deploy',h:'2h'},
+{d:'Wed',t:'fs',a:'KombiTracker public launch preparation',pl:'prj',th:'Landing page, ProductHunt draft, social announcement, demo video, press kit for launch',h:'2h'},
+{d:'Thu',t:'ai',a:'AI agent demo — shareable portfolio piece',pl:'prj',th:'Build: tutoring bot or research agent. Clean hosted UI, shareable link, clear README',h:'2h'},
+{d:'Fri',t:'dsa',a:'Senior engineer mock interview — full 2-hour simulation',pl:'free',th:'60 min coding plus 45 min system design plus 15 min leadership and behavioural questions',h:'2h'},
+{d:'Sat',t:'prj',a:'All projects deployed, documented, portfolio ready',pl:'prj',th:'Final quality pass. Live links. Clean READMEs. This is your proof of work for 6 months.',h:'3h'},
+{d:'Sun',t:'read',a:'Write 6-month retro + plan the next 6 months',pl:'prj',th:'What worked, what did not, what is next. Make it public if you are brave enough.',h:'1h'},
+]},
+];
+const SUPP=[
+{title:'System Design and Software Engineering',c:'#22B07D',items:[
+{n:'Designing Data-Intensive Applications',a:'Martin Kleppmann',d:'THE system design book. Read it cover to cover alongside this roadmap.',f:false},
+{n:'System Design Interview Vol 1 and 2',a:'Alex Xu',d:'Case-study format. Builds architectural intuition fast. Very practical.',f:false},
+{n:'Clean Architecture',a:'Robert C. Martin',d:'SOLID principles and architectural patterns applied to real systems.',f:false},
+{n:'ByteByteGo Newsletter',a:'Alex Xu (bytebytego.com)',d:'Weekly system design breakdowns with excellent diagrams. Subscribe now.',f:true},
+{n:'Hussein Nasser on YouTube',a:'Hussein Nasser',d:'DB internals, Postgres deep dives, networking, protocol analysis. Great.',f:true},
+{n:'The Phoenix Project',a:'Gene Kim, Kevin Behr, Spafford',d:'DevOps culture as a novel. Read it once a year starting now.',f:false},
+{n:'An Elegant Puzzle',a:'Will Larson',d:'Engineering management systems thinking. Read it in Phase 4.',f:false},
+]},
+{title:'Machine Learning Engineering',c:'#4AADEA',items:[
+{n:'Hands-On ML with Scikit-Learn, Keras and TF',a:'Aurelien Geron',d:'Most practical ML book available. Use it alongside DataCamp courses.',f:false},
+{n:'Practical Deep Learning for Coders',a:'fast.ai / Jeremy Howard',d:'Top-down approach to deep learning. Free course. One of the best.',f:true},
+{n:'Neural Networks: Zero to Hero',a:'Andrej Karpathy (YouTube)',d:'Best backpropagation intuition on the internet. Watch all of it.',f:true},
+{n:'Made with ML',a:'Goku Mohandas (madewithml.com)',d:'ML engineering from training to production. Free and genuinely excellent.',f:true},
+{n:'Papers With Code',a:'Meta AI (paperswithcode.com)',d:'Browse SOTA papers with implementations. Read 1 paper per week from Wk 21.',f:true},
+{n:'The Hundred-Page ML Book',a:'Andriy Burkov',d:'Concise theory reference. Read it in a weekend for the full picture.',f:false},
+{n:'Designing ML Systems',a:'Chip Huyen',d:'Production ML: data, training, serving, monitoring, evaluation. Priority read.',f:false},
+]},
+{title:'AI Engineering',c:'#A08FEE',items:[
+{n:'AI Engineering',a:'Chip Huyen (2024)',d:'The definitive book on building production AI systems and products.',f:false},
+{n:'Anthropic Prompt Engineering Guide',a:'Anthropic (docs.anthropic.com)',d:'Official guide. Read and re-read it. Very practical and up to date.',f:true},
+{n:'Simon Willison Blog',a:'simonwillison.net',d:'Best independent LLM commentary and practical patterns. Subscribe.',f:true},
+{n:'OpenAI Cookbook',a:'OpenAI (github.com/openai/openai-cookbook)',d:'Production AI integration patterns. Free. Use it as a practical reference.',f:true},
+{n:'LangChain and LangGraph Docs',a:'LangChain',d:'Work through them hands-on. The docs are well-written with code examples.',f:true},
+{n:'Latent Space Podcast',a:'swyx and Alessio',d:'Best AI engineering podcast for staying current. Listen on commutes.',f:true},
+]},
+{title:'Full Stack Development',c:'#F5A623',items:[
+{n:'The Pragmatic Programmer',a:'Hunt and Thomas',d:'Career and craft fundamentals. Read once a year, every year.',f:false},
+{n:'You Do Not Know JS (series)',a:'Kyle Simpson (GitHub)',d:'Deep JavaScript internals. Free on GitHub. Essential for senior FS.',f:true},
+{n:'Josh Comeau Blog',a:'joshwcomeau.com',d:'CSS and React patterns explained with excellent visual examples.',f:true},
+{n:'Kent C. Dodds Blog',a:'kentcdodds.com',d:'React testing, architecture, and patterns. Start with the testing articles.',f:true},
+{n:'Web Scalability for Startup Engineers',a:'Artur Ejsmont',d:'Backend architecture for scale from zero. Practical and well-structured.',f:false},
+{n:'Fireship on YouTube',a:'Jeff Delaney',d:'100-second concept videos and in-depth tutorials. Great for breadth.',f:true},
+]},
+];
+const STATUS_META={
+  not_started:{label:'Not started',weight:0},
+  in_progress:{label:'In progress',weight:0.4},
+  blocked:{label:'Blocked',weight:0.2},
+  done:{label:'Done',weight:1},
+  shipped:{label:'Shipped',weight:1},
+  reviewed:{label:'Reviewed',weight:1}
+};
+const DEFAULT_EVIDENCE={githubUrl:'',liveUrl:'',notes:'',certificate:false,certificateUrl:'',screenshotUrl:'',reflection:''};
+const DEFAULT_REVIEW={wins:'',blockers:'',learned:'',improve:'',confidence:3};
+const DEFAULT_FILTERS={track:'all',platform:'all',search:'',showIncomplete:false,showEvidenceOnly:false,showShippedOnly:false,focusMode:false};
+const STORAGE={key:'roadmapExecutionStore',version:2};
+const DAY_MS=24*60*60*1000;
+const TODAY=new Date();
+
+function conceptTokens(text){
+  return String(text||'').split(/[;,]+/).map(function(chunk){return chunk.trim();}).filter(Boolean);
+}
+function toRGBA(hex,alpha){
+  var raw=(hex||'#5670D8').replace('#','');
+  var h=raw.length===3?raw.split('').map(function(ch){return ch+ch;}).join(''):raw;
+  var r=parseInt(h.slice(0,2),16);
+  var g=parseInt(h.slice(2,4),16);
+  var b=parseInt(h.slice(4,6),16);
+  return 'rgba('+r+','+g+','+b+','+alpha+')';
+}
+function escapeHTML(value){
+  return String(value==null?'':value).replace(/[&<>"']/g,function(ch){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+  });
+}
+function escapeAttr(value){
+  return escapeHTML(value).replace(/"/g,'&quot;');
+}
+function badge(pl){
+  return '<span class="pbadge '+(BC[pl]||'bfree')+'">'+escapeHTML(PL[pl]||pl)+'</span>';
+}
+function trackPill(trackId){
+  var color=C[trackId]||'#5670D8';
+  var track=TRACKS[trackId]||{name:'General'};
+  return '<span class="trackpill" style="background:'+toRGBA(color,0.13)+';color:'+color+';border-color:'+toRGBA(color,0.36)+'">'+escapeHTML(track.name)+'</span>';
+}
+function formatPct(value){
+  return Math.round(value)+'%';
+}
+function statusWeight(status){
+  return (STATUS_META[status]||STATUS_META.not_started).weight;
+}
+function isCompleteStatus(status){
+  return statusWeight(status)>=1;
+}
+function hasText(value){
+  return Boolean(String(value||'').trim());
+}
+function countEvidence(evidence){
+  return ['githubUrl','liveUrl','notes','certificateUrl','screenshotUrl','reflection'].reduce(function(total,key){
+    return total+(hasText(evidence[key])?1:0);
+  },evidence.certificate?1:0);
+}
+function hasEvidence(evidence){
+  return countEvidence(evidence)>0;
+}
+function deriveKind(day){
+  var text=(day.a+' '+day.th).toLowerCase();
+  if(day.t==='prj'||/(build|ship|deploy|launch|publish|feature|portfolio|case study|production|project)/.test(text))return 'project';
+  if(day.t==='read'||/(chapter|read|book|docs|paper|theory)/.test(text))return 'theory';
+  return 'practice';
+}
+function deriveMilestone(day){
+  var text=(day.a+' '+day.th).toLowerCase();
+  if(day.exam)return {label:'Exam milestone',type:'exam'};
+  if(/(ship|deploy|launch|publish|submit|cert|capstone|retro|portfolio)/.test(text))return {label:'Milestone',type:'ship'};
+  return null;
+}
+function buildRoadmapData(){
+  var phases=Object.keys(PHASES).map(function(key){
+    return {
+      id:'phase-'+key,
+      number:Number(key),
+      name:PHASES[key].name,
+      dates:PHASES[key].dates,
+      goal:PHASES[key].goal
+    };
+  });
+  var weeks=W.map(function(week){
+    var weekId='week-'+week.w;
+    var tasks=week.days.map(function(day,index){
+      return {
+        id:'w'+week.w+'-d'+index,
+        weekId:weekId,
+        weekNumber:week.w,
+        phaseNumber:week.p,
+        dayLabel:day.d,
+        trackId:day.t,
+        platformId:day.pl,
+        title:day.a,
+        conceptText:day.th,
+        concepts:conceptTokens(day.th).slice(0,7),
+        durationHours:parseFloat(day.h)||0,
+        durationLabel:day.h,
+        exam:Boolean(day.exam),
+        kind:deriveKind(day),
+        milestone:deriveMilestone(day)
+      };
+    });
+    return {
+      id:weekId,
+      number:week.w,
+      phaseNumber:week.p,
+      dates:week.dates,
+      title:week.title,
+      focus:week.focus,
+      tasks:tasks
+    };
+  });
+  var tasks=weeks.flatMap(function(week){return week.tasks;});
+  var milestones=tasks.filter(function(task){return task.milestone;}).map(function(task){
+    return {id:'milestone-'+task.id,taskId:task.id,weekId:task.weekId,label:task.milestone.label,type:task.milestone.type};
+  });
+  return {
+    roadmap:{
+      id:'six-month-tech-roadmap',
+      title:'6-Month Tech Roadmap',
+      startDate:'2026-04-19',
+      endDate:'2026-10-03',
+      totalWeeks:24,
+      settings:{statusWeights:Object.fromEntries(Object.keys(STATUS_META).map(function(key){return [key,STATUS_META[key].weight];}))}
+    },
+    phases:phases,
+    weeks:weeks,
+    tasks:tasks,
+    milestones:milestones,
+    resources:SUPP
+  };
+}
+const ROADMAP_DATA=buildRoadmapData();
+
+function getDefaultStore(){
+  return {
+    schemaVersion:STORAGE.version,
+    roadmapId:ROADMAP_DATA.roadmap.id,
+    taskStates:{},
+    reviews:{},
+    settings:{filters:Object.assign({},DEFAULT_FILTERS),lastPhase:getCurrentWeek().phaseNumber}
+  };
+}
+function migrateStore(raw){
+  if(!raw||typeof raw!=='object')return getDefaultStore();
+  if(raw.schemaVersion===STORAGE.version&&raw.roadmapId){
+    var merged=getDefaultStore();
+    merged.taskStates=raw.taskStates&&typeof raw.taskStates==='object'?raw.taskStates:{};
+    merged.reviews=raw.reviews&&typeof raw.reviews==='object'?raw.reviews:{};
+    merged.settings=Object.assign(merged.settings,raw.settings||{});
+    merged.settings.filters=Object.assign({},DEFAULT_FILTERS,(raw.settings&&raw.settings.filters)||{});
+    return merged;
+  }
+  var migrated=getDefaultStore();
+  Object.keys(raw).forEach(function(key){
+    if(/^w\d+-d\d+$/.test(key)&&raw[key]){
+      migrated.taskStates[key]={status:'done',evidence:Object.assign({},DEFAULT_EVIDENCE),updatedAt:new Date().toISOString()};
+    }
+  });
+  return migrated;
+}
+function loadStore(){
+  try{
+    var raw=localStorage.getItem(STORAGE.key)||localStorage.getItem('roadmapProgressV1');
+    if(!raw)return getDefaultStore();
+    return migrateStore(JSON.parse(raw));
+  }catch(error){
+    return getDefaultStore();
+  }
+}
+function saveStore(){
+  try{
+    localStorage.setItem(STORAGE.key,JSON.stringify(store));
+  }catch(error){}
+}
+function cleanTaskState(taskId){
+  var state=store.taskStates[taskId];
+  if(!state)return;
+  var evidence=Object.assign({},DEFAULT_EVIDENCE,state.evidence||{});
+  var removable=(state.status||'not_started')==='not_started'&&!hasEvidence(evidence);
+  if(removable)delete store.taskStates[taskId];
+}
+function getTaskState(taskId){
+  var state=store.taskStates[taskId]||{};
+  return {
+    status:STATUS_META[state.status]?state.status:'not_started',
+    evidence:Object.assign({},DEFAULT_EVIDENCE,state.evidence||{}),
+    updatedAt:state.updatedAt||''
+  };
+}
+function getReview(weekId){
+  return Object.assign({},DEFAULT_REVIEW,store.reviews[weekId]||{});
+}
+function setTaskStatus(taskId,status){
+  var current=getTaskState(taskId);
+  store.taskStates[taskId]={status:STATUS_META[status]?status:'not_started',evidence:current.evidence,updatedAt:new Date().toISOString()};
+  cleanTaskState(taskId);
+  saveStore();
+  render();
+}
+function updateEvidenceField(taskId,field,value){
+  var current=getTaskState(taskId);
+  current.evidence[field]=field==='certificate'?Boolean(value):value;
+  store.taskStates[taskId]={status:current.status,evidence:current.evidence,updatedAt:new Date().toISOString()};
+  cleanTaskState(taskId);
+  saveStore();
+  render();
+}
+function updateReviewField(weekId,field,value){
+  var current=getReview(weekId);
+  current[field]=field==='confidence'?Number(value):value;
+  var hasAny=['wins','blockers','learned','improve'].some(function(key){return hasText(current[key]);})||Number(current.confidence)!==DEFAULT_REVIEW.confidence;
+  if(hasAny)store.reviews[weekId]=current;
+  else delete store.reviews[weekId];
+  saveStore();
+  render();
+}
+function setFilter(field,value){
+  store.settings.filters[field]=value;
+  saveStore();
+  render();
+}
+function toggleFilter(field){
+  store.settings.filters[field]=!store.settings.filters[field];
+  saveStore();
+  render();
+}
+function getWeekActivity(week){
+  var review=getReview(week.id);
+  var reviewActive=['wins','blockers','learned','improve'].some(function(key){return hasText(review[key]);})||Number(review.confidence)!==DEFAULT_REVIEW.confidence;
+  return reviewActive||week.tasks.some(function(task){
+    var state=getTaskState(task.id);
+    return state.status!=='not_started'||hasEvidence(state.evidence);
+  });
+}
+function getCurrentWeek(){
+  var start=new Date(ROADMAP_DATA.roadmap.startDate+'T00:00:00');
+  var diff=Math.floor((TODAY-start)/DAY_MS);
+  var index=Math.max(0,Math.min(ROADMAP_DATA.weeks.length-1,Math.floor(diff/7)));
+  return ROADMAP_DATA.weeks[index];
+}
+function getElapsedWeeksCount(){
+  return Math.max(1,Math.min(ROADMAP_DATA.weeks.length,getCurrentWeek().number));
+}
+function getTrackBreakdown(){
+  return Object.keys(TRACKS).map(function(trackId){
+    var tasks=ROADMAP_DATA.tasks.filter(function(task){return task.trackId===trackId;});
+    var weighted=tasks.reduce(function(total,task){return total+statusWeight(getTaskState(task.id).status);},0);
+    var pct=tasks.length?(weighted/tasks.length)*100:0;
+    return {trackId:trackId,name:TRACKS[trackId].name,pct:pct,color:C[trackId]};
+  });
+}
+function getDashboardMetrics(){
+  var totalTasks=ROADMAP_DATA.tasks.length;
+  var weightedProgress=ROADMAP_DATA.tasks.reduce(function(total,task){return total+statusWeight(getTaskState(task.id).status);},0);
+  var completedTasks=ROADMAP_DATA.tasks.filter(function(task){return isCompleteStatus(getTaskState(task.id).status);}).length;
+  var shippedTasks=ROADMAP_DATA.tasks.filter(function(task){return getTaskState(task.id).status==='shipped';}).length;
+  var evidenceTasks=ROADMAP_DATA.tasks.filter(function(task){return hasEvidence(getTaskState(task.id).evidence);}).length;
+  var buildDone=ROADMAP_DATA.tasks.filter(function(task){return task.kind==='project'&&isCompleteStatus(getTaskState(task.id).status);}).length;
+  var theoryDone=ROADMAP_DATA.tasks.filter(function(task){return task.kind==='theory'&&isCompleteStatus(getTaskState(task.id).status);}).length;
+  var elapsedWeeks=ROADMAP_DATA.weeks.slice(0,getElapsedWeeksCount());
+  var activeWeeks=elapsedWeeks.filter(getWeekActivity).length;
+  var streak=0;
+  for(var i=elapsedWeeks.length-1;i>=0;i-=1){
+    if(!getWeekActivity(elapsedWeeks[i]))break;
+    streak+=1;
+  }
+  return {
+    completionPct:totalTasks?(weightedProgress/totalTasks)*100:0,
+    consistency:elapsedWeeks.length?(activeWeeks/elapsedWeeks.length)*100:0,
+    completedTasks:completedTasks,
+    buildVsTheory:buildDone+':'+theoryDone,
+    evidenceTasks:evidenceTasks,
+    shippedTasks:shippedTasks,
+    streak:streak,
+    tracks:getTrackBreakdown()
+  };
+}
+function getVisibleWeeksForPhase(phaseNumber){
+  var filters=store.settings.filters;
+  var weeks=ROADMAP_DATA.weeks.filter(function(week){return week.phaseNumber===phaseNumber;});
+  if(filters.focusMode){
+    var current=getCurrentWeek();
+    var phaseCurrent=weeks.find(function(week){return week.number===current.number;})||weeks[0];
+    weeks=phaseCurrent?weeks.filter(function(week){
+      return week.id===phaseCurrent.id||week.number===phaseCurrent.number+1;
+    }):weeks;
+  }
+  return weeks.map(function(week){
+    var tasks=week.tasks.filter(function(task){
+      var state=getTaskState(task.id);
+      var evidence=state.evidence;
+      var searchHaystack=(task.title+' '+task.conceptText).toLowerCase();
+      if(filters.track!=='all'&&task.trackId!==filters.track)return false;
+      if(filters.platform!=='all'&&task.platformId!==filters.platform)return false;
+      if(filters.showIncomplete&&isCompleteStatus(state.status))return false;
+      if(filters.showEvidenceOnly&&!hasEvidence(evidence))return false;
+      if(filters.showShippedOnly&&state.status!=='shipped')return false;
+      if(hasText(filters.search)&&searchHaystack.indexOf(String(filters.search).toLowerCase())===-1)return false;
+      return true;
+    });
+    return Object.assign({},week,{visibleTasks:tasks});
+  }).filter(function(week){return week.visibleTasks.length>0;});
+}
+function getPhaseStats(phaseNumber){
+  var weeks=ROADMAP_DATA.weeks.filter(function(week){return week.phaseNumber===phaseNumber;});
+  var totalHours=0;
+  var projectSessions=0;
+  var examMilestones=0;
+  var totalTasks=0;
+  var weighted=0;
+  var shipped=0;
+  var evidenceCount=0;
+  weeks.forEach(function(week){
+    week.tasks.forEach(function(task){
+      var state=getTaskState(task.id);
+      totalHours+=task.durationHours;
+      totalTasks+=1;
+      weighted+=statusWeight(state.status);
+      if(task.kind==='project')projectSessions+=1;
+      if(task.exam||task.milestone)examMilestones+=1;
+      if(state.status==='shipped')shipped+=1;
+      if(hasEvidence(state.evidence))evidenceCount+=1;
+    });
+  });
+  return {
+    weeks:weeks.length,
+    totalHours:totalHours.toFixed(1).replace('.0',''),
+    avgHours:(weeks.length?totalHours/weeks.length:0).toFixed(1),
+    projectSessions:projectSessions,
+    examMilestones:examMilestones,
+    totalTasks:totalTasks,
+    weighted:weighted,
+    completionPct:totalTasks?(weighted/totalTasks)*100:0,
+    completedTasks:Math.round(weighted),
+    shipped:shipped,
+    evidenceCount:evidenceCount
+  };
+}
+function getPhaseReviewInsights(phaseNumber){
+  var phaseWeeks=ROADMAP_DATA.weeks.filter(function(week){return week.phaseNumber===phaseNumber;});
+  var reviews=phaseWeeks.map(function(week){return {week:week,review:getReview(week.id)};}).filter(function(entry){
+    return ['wins','blockers','learned','improve'].some(function(key){return hasText(entry.review[key]);})||Number(entry.review.confidence)!==DEFAULT_REVIEW.confidence;
+  });
+  var latestWin='';
+  var latestBlocker='';
+  reviews.forEach(function(entry){
+    if(hasText(entry.review.wins))latestWin=entry.review.wins;
+    if(hasText(entry.review.blockers))latestBlocker=entry.review.blockers;
+  });
+  var averageConfidence=reviews.length?reviews.reduce(function(total,entry){return total+Number(entry.review.confidence||0);},0)/reviews.length:0;
+  return {
+    count:reviews.length,
+    confidence:averageConfidence,
+    latestWin:latestWin||'Capture wins weekly so the phase tells a story, not just a checklist.',
+    latestBlocker:latestBlocker||'No blockers logged yet. Use reviews to surface what is slowing execution down.'
+  };
+}
+function getWeekStats(week){
+  var weighted=week.tasks.reduce(function(total,task){return total+statusWeight(getTaskState(task.id).status);},0);
+  var evidenceCount=week.tasks.filter(function(task){return hasEvidence(getTaskState(task.id).evidence);}).length;
+  var shipped=week.tasks.filter(function(task){return getTaskState(task.id).status==='shipped';}).length;
+  return {
+    completionPct:week.tasks.length?(weighted/week.tasks.length)*100:0,
+    evidenceCount:evidenceCount,
+    shipped:shipped
+  };
+}
+function getNextMilestone(){
+  return ROADMAP_DATA.tasks.find(function(task){
+    return task.milestone&&!isCompleteStatus(getTaskState(task.id).status);
+  })||null;
+}
+function getFocusTask(){
+  var current=getCurrentWeek();
+  var candidateSets=[current.tasks,ROADMAP_DATA.weeks.find(function(week){return week.number===current.number+1;})?.tasks||[],ROADMAP_DATA.tasks];
+  for(var i=0;i<candidateSets.length;i+=1){
+    var tasks=candidateSets[i];
+    for(var j=0;j<tasks.length;j+=1){
+      if(!isCompleteStatus(getTaskState(tasks[j].id).status)){
+        return tasks[j];
+      }
+    }
+  }
+  return ROADMAP_DATA.tasks[0];
+}
+let phase=loadStore().settings.lastPhase||getCurrentWeek().phaseNumber;
+let store=loadStore();
+const uiState={openWeeks:new Set(['week-'+getCurrentWeek().number]),openEvidence:new Set()};
+
+function setPhase(n){
+  phase=n;
+  store.settings.lastPhase=n;
+  saveStore();
+  if(phase!==5&&!Array.from(uiState.openWeeks).some(function(id){
+    var week=ROADMAP_DATA.weeks.find(function(item){return item.id===id;});
+    return week&&week.phaseNumber===phase;
+  })){
+    var firstWeek=ROADMAP_DATA.weeks.find(function(week){return week.phaseNumber===phase;});
+    if(firstWeek)uiState.openWeeks.add(firstWeek.id);
+  }
+  document.querySelectorAll('.tab').forEach(function(t,i){t.classList.toggle('active',i+1===n);});
+  render();
+  window.scrollTo({top:document.getElementById('main').offsetTop-120,behavior:'smooth'});
+}
+function toggleWeek(id){
+  if(uiState.openWeeks.has(id))uiState.openWeeks.delete(id);
+  else uiState.openWeeks.add(id);
+  render();
+}
+function toggleEvidence(taskId){
+  if(uiState.openEvidence.has(taskId))uiState.openEvidence.delete(taskId);
+  else uiState.openEvidence.add(taskId);
+  render();
+}
+function exportProgress(){
+  var payload={exportedAt:new Date().toISOString(),schemaVersion:store.schemaVersion,roadmapId:store.roadmapId,data:store};
+  var blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  var link=document.createElement('a');
+  link.href=URL.createObjectURL(blob);
+  link.download='roadmap-progress-export.json';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  setTimeout(function(){URL.revokeObjectURL(link.href);},0);
+}
+function importProgress(){
+  var input=document.createElement('input');
+  input.type='file';
+  input.accept='application/json';
+  input.addEventListener('change',function(event){
+    var file=event.target.files&&event.target.files[0];
+    if(!file)return;
+    var reader=new FileReader();
+    reader.onload=function(){
+      try{
+        var parsed=JSON.parse(String(reader.result||'{}'));
+        store=migrateStore(parsed.data||parsed);
+        phase=store.settings.lastPhase||phase;
+        saveStore();
+        render();
+      }catch(error){
+        window.alert('Import failed. Use a roadmap progress JSON export.');
+      }
+    };
+    reader.readAsText(file);
+  });
+  input.click();
+}
+function resetProgress(){
+  if(!window.confirm('Reset all task statuses, evidence, reviews, and filters for this roadmap?'))return;
+  store=getDefaultStore();
+  phase=getCurrentWeek().phaseNumber;
+  uiState.openWeeks.clear();
+  uiState.openWeeks.add('week-'+getCurrentWeek().number);
+  saveStore();
+  render();
+}
+function renderTask(task){
+  var state=getTaskState(task.id);
+  var evidence=state.evidence;
+  var evidenceCount=countEvidence(evidence);
+  var isEvidenceOpen=uiState.openEvidence.has(task.id);
+  var concepts=(task.concepts.length?task.concepts:['Review core fundamentals']).map(function(concept){
+    return '<span class="concept">'+escapeHTML(concept)+'</span>';
+  }).join('');
+  var evidenceLinks=[
+    hasText(evidence.githubUrl)?'<a href="'+escapeAttr(evidence.githubUrl)+'" target="_blank" rel="noreferrer">GitHub</a>':'',
+    hasText(evidence.liveUrl)?'<a href="'+escapeAttr(evidence.liveUrl)+'" target="_blank" rel="noreferrer">Live demo</a>':'',
+    hasText(evidence.certificateUrl)?'<a href="'+escapeAttr(evidence.certificateUrl)+'" target="_blank" rel="noreferrer">Certificate</a>':'',
+    hasText(evidence.screenshotUrl)?'<a href="'+escapeAttr(evidence.screenshotUrl)+'" target="_blank" rel="noreferrer">Screenshot</a>':''
+  ].filter(Boolean).join('');
+  return '<article class="task-card'+(hasEvidence(evidence)?' has-evidence':'')+(task.milestone?' is-milestone':'')+'" data-status="'+state.status+'" style="--track:'+(C[task.trackId]||'#5670D8')+'">'+
+    '<div class="task-top">'+
+      '<span class="daypill">'+escapeHTML(task.dayLabel.toUpperCase())+'</span>'+
+      trackPill(task.trackId)+
+      badge(task.platformId)+
+      '<span class="dhrs">'+escapeHTML(task.durationLabel)+'</span>'+
+      '<span class="status-chip '+state.status+'">'+escapeHTML(STATUS_META[state.status].label)+'</span>'+
+    '</div>'+
+    '<div class="dblock"><span class="dblabel">Execution Item</span><div class="task-title">'+escapeHTML(task.title)+(task.exam?'<span class="exam">Exam</span>':'')+'</div></div>'+
+    '<div class="dblock"><span class="dblabel">Core Concepts</span><div class="concepts">'+concepts+'</div></div>'+
+    '<div class="task-badges">'+
+      '<span class="kind-chip '+task.kind+'">'+escapeHTML(task.kind==='project'?'Build / ship':task.kind==='theory'?'Theory / reading':'Practice / depth')+'</span>'+
+      (task.milestone?'<span class="milestone-chip">'+escapeHTML(task.milestone.label)+'</span>':'')+
+      (evidenceCount?'<span class="evidence-chip">Evidence '+evidenceCount+'</span>':'')+
+    '</div>'+
+    '<div class="task-actions">'+
+      '<label class="filter-field" style="min-width:170px"><span class="filter-label">Status</span><select class="status-select" onchange="setTaskStatus(\''+task.id+'\',this.value)">'+Object.keys(STATUS_META).map(function(key){
+        return '<option value="'+key+'"'+(state.status===key?' selected':'')+'>'+escapeHTML(STATUS_META[key].label)+'</option>';
+      }).join('')+'</select></label>'+
+      '<button type="button" class="quiet-btn" onclick="toggleEvidence(\''+task.id+'\')">'+(isEvidenceOpen?'Hide evidence':'Add evidence')+'</button>'+
+    '</div>'+
+    (isEvidenceOpen?
+      '<div class="evidence-panel">'+
+        '<div class="panel-title">Proof Of Work</div>'+
+        '<div class="evidence-grid">'+
+          '<label class="filter-field"><span class="filter-label">GitHub URL</span><input class="evidence-input" data-task-id="'+task.id+'" data-evidence-field="githubUrl" value="'+escapeAttr(evidence.githubUrl)+'" placeholder="https://github.com/..."></label>'+
+          '<label class="filter-field"><span class="filter-label">Live URL</span><input class="evidence-input" data-task-id="'+task.id+'" data-evidence-field="liveUrl" value="'+escapeAttr(evidence.liveUrl)+'" placeholder="https://..."></label>'+
+          '<label class="filter-field"><span class="filter-label">Certificate URL</span><input class="evidence-input" data-task-id="'+task.id+'" data-evidence-field="certificateUrl" value="'+escapeAttr(evidence.certificateUrl)+'" placeholder="Optional"></label>'+
+          '<label class="filter-field"><span class="filter-label">Screenshot URL</span><input class="evidence-input" data-task-id="'+task.id+'" data-evidence-field="screenshotUrl" value="'+escapeAttr(evidence.screenshotUrl)+'" placeholder="Image or placeholder"></label>'+
+        '</div>'+
+        '<label class="filter-toggle"><input type="checkbox" data-task-id="'+task.id+'" data-evidence-field="certificate"'+(evidence.certificate?' checked':'')+'>Certificate earned</label>'+
+        '<label class="filter-field"><span class="filter-label">Notes</span><textarea class="evidence-textarea" data-task-id="'+task.id+'" data-evidence-field="notes" placeholder="What did you ship, solve, or prove?">'+escapeHTML(evidence.notes)+'</textarea></label>'+
+        '<label class="filter-field"><span class="filter-label">Reflection</span><textarea class="evidence-textarea" data-task-id="'+task.id+'" data-evidence-field="reflection" placeholder="What changed in your understanding after completing this?">'+escapeHTML(evidence.reflection)+'</textarea></label>'+
+        (evidenceLinks?'<div class="evidence-links">'+evidenceLinks+'</div>':'<div class="helper-text">Add links, screenshots, notes, or a short reflection so the roadmap becomes portfolio proof, not just effort logs.</div>')+
+      '</div>':'')+
+  '</article>';
+}
+function renderReviewPanel(week){
+  var review=getReview(week.id);
+  return '<section class="review-panel" style="grid-column:1 / -1">'+
+    '<div class="panel-title">Weekly Review</div>'+
+    '<div class="review-grid">'+
+      '<label class="filter-field"><span class="filter-label">Wins</span><textarea class="evidence-textarea review-textarea" data-week-id="'+week.id+'" data-review-field="wins" placeholder="What moved forward this week?">'+escapeHTML(review.wins)+'</textarea></label>'+
+      '<label class="filter-field"><span class="filter-label">Blockers</span><textarea class="evidence-textarea review-textarea" data-week-id="'+week.id+'" data-review-field="blockers" placeholder="What slowed execution down?">'+escapeHTML(review.blockers)+'</textarea></label>'+
+      '<label class="filter-field"><span class="filter-label">What I Learned</span><textarea class="evidence-textarea review-textarea" data-week-id="'+week.id+'" data-review-field="learned" placeholder="Capture the non-obvious lessons.">'+escapeHTML(review.learned)+'</textarea></label>'+
+      '<label class="filter-field"><span class="filter-label">Improve Next Week</span><textarea class="evidence-textarea review-textarea" data-week-id="'+week.id+'" data-review-field="improve" placeholder="One thing to tighten next week.">'+escapeHTML(review.improve)+'</textarea></label>'+
+    '</div>'+
+    '<label class="filter-field" style="max-width:180px"><span class="filter-label">Confidence</span><select class="review-select" data-week-id="'+week.id+'" data-review-field="confidence">'+[1,2,3,4,5].map(function(score){
+      return '<option value="'+score+'"'+(Number(review.confidence)===score?' selected':'')+'>'+score+' / 5</option>';
+    }).join('')+'</select></label>'+
+  '</section>';
+}
+function renderWeekCard(week){
+  var stats=getWeekStats(week);
+  var review=getReview(week.id);
+  var open=uiState.openWeeks.has(week.id);
+  return '<section class="wcard'+(open?' open':'')+'" id="'+week.id+'">'+
+    '<button type="button" class="whdr" onclick="toggleWeek(\''+week.id+'\')">'+
+      '<div class="whdr-l">'+
+        '<div class="wmeta"><span class="wnum">Week '+String(week.number).padStart(2,'0')+'</span><span class="wdates">'+escapeHTML(week.dates)+'</span></div>'+
+        '<div class="wtitle">'+escapeHTML(week.title)+'</div>'+
+        '<div class="wfocus">'+escapeHTML(week.focus)+'</div>'+
+      '</div>'+
+      '<div class="week-metrics">'+
+        '<span class="week-chip">'+formatPct(stats.completionPct)+' complete</span>'+
+        '<span class="week-chip">'+stats.evidenceCount+' evidence</span>'+
+        '<span class="week-chip">'+stats.shipped+' shipped</span>'+
+        '<span class="wtoggle">&#9660;</span>'+
+      '</div>'+
+    '</button>'+
+    '<div class="week-summary">'+
+      '<div class="phase-progress-head"><span class="klabel">Execution Progress</span><span class="phase-progress-meta">Confidence '+Number(review.confidence||DEFAULT_REVIEW.confidence)+'/5</span></div>'+
+      '<div class="summary-bar"><div class="summary-fill" style="width:'+stats.completionPct+'%"></div></div>'+
+      '<div class="helper-text" style="margin-top:.5rem">'+escapeHTML(hasText(review.wins)?review.wins:week.focus)+'</div>'+
+    '</div>'+
+    '<div class="dgrid">'+renderReviewPanel(week)+week.visibleTasks.map(renderTask).join('')+'</div>'+
+  '</section>';
+}
+function renderTrackBreakdown(metrics){
+  return '<div class="track-breakdown">'+metrics.tracks.map(function(track){
+    return '<div class="track-card"><div class="track-card-head"><span class="track-name" style="color:'+track.color+'">'+escapeHTML(track.name)+'</span><span class="mini-chip">'+formatPct(track.pct)+'</span></div><div class="track-bar"><div class="track-fill" style="width:'+track.pct+'%;background:'+track.color+'"></div></div></div>';
+  }).join('')+'</div>';
+}
+function renderDashboard(metrics){
+  var focusTask=getFocusTask();
+  var nextMilestone=getNextMilestone();
+  return '<div class="hero-grid">'+
+    '<section class="dashboard-panel">'+
+      '<div class="panel-title">Execution Dashboard</div>'+
+      '<div class="dashboard-grid">'+
+        '<div class="metric-card"><span class="metric-label">Completion</span><div class="metric-value">'+formatPct(metrics.completionPct)+'</div><div class="metric-sub">Weighted from real task status</div></div>'+
+        '<div class="metric-card"><span class="metric-label">Consistency</span><div class="metric-value">'+formatPct(metrics.consistency)+'</div><div class="metric-sub">Weeks with logged movement</div></div>'+
+        '<div class="metric-card"><span class="metric-label">Completed Sessions</span><div class="metric-value">'+metrics.completedTasks+'</div><div class="metric-sub">Done, shipped, or reviewed</div></div>'+
+        '<div class="metric-card"><span class="metric-label">Build vs Theory</span><div class="metric-value">'+escapeHTML(metrics.buildVsTheory)+'</div><div class="metric-sub">Completed output mix</div></div>'+
+        '<div class="metric-card"><span class="metric-label">Evidence-backed</span><div class="metric-value">'+metrics.evidenceTasks+'</div><div class="metric-sub">Tasks with proof attached</div></div>'+
+        '<div class="metric-card"><span class="metric-label">Shipped Tasks</span><div class="metric-value">'+metrics.shippedTasks+'</div><div class="metric-sub">Production-facing wins</div></div>'+
+        '<div class="metric-card"><span class="metric-label">Current Streak</span><div class="metric-value">'+metrics.streak+' wk</div><div class="metric-sub">Active weeks in a row</div></div>'+
+      '</div>'+
+      renderTrackBreakdown(metrics)+
+    '</section>'+
+    '<aside class="focus-panel">'+
+      '<div class="panel-title">Current Focus</div>'+
+      '<div class="focus-title">'+escapeHTML(focusTask.title)+'</div>'+
+      '<div class="focus-copy">'+escapeHTML(focusTask.conceptText)+'</div>'+
+      '<div class="focus-meta">'+
+        '<span class="stat-chip">Week '+String(focusTask.weekNumber).padStart(2,'0')+'</span>'+
+        '<span class="stat-chip">'+escapeHTML(TRACKS[focusTask.trackId].name)+'</span>'+
+        '<span class="stat-chip">'+escapeHTML(focusTask.durationLabel)+'</span>'+
+      '</div>'+
+      '<div class="helper-text" style="margin-top:.75rem">'+(nextMilestone?'Next milestone: '+escapeHTML(nextMilestone.title)+' in week '+nextMilestone.weekNumber:'No pending milestone. Use reviews to raise the next bet.')+'</div>'+
+    '</aside>'+
+  '</div>';
+}
+function renderFilterBar(visibleCount){
+  var filters=store.settings.filters;
+  return '<div class="hero-grid">'+
+    '<section class="filter-panel">'+
+      '<div class="panel-title">Filters And Search</div>'+
+      '<div class="filter-row">'+
+        '<label class="filter-field"><span class="filter-label">Track</span><select class="filter-select" onchange="setFilter(\'track\',this.value)"><option value="all">All tracks</option>'+Object.keys(TRACKS).map(function(trackId){return '<option value="'+trackId+'"'+(filters.track===trackId?' selected':'')+'>'+escapeHTML(TRACKS[trackId].name)+'</option>';}).join('')+'</select></label>'+
+        '<label class="filter-field"><span class="filter-label">Platform</span><select class="filter-select" onchange="setFilter(\'platform\',this.value)"><option value="all">All platforms</option>'+Object.keys(PL).map(function(platformId){return '<option value="'+platformId+'"'+(filters.platform===platformId?' selected':'')+'>'+escapeHTML(PL[platformId])+'</option>';}).join('')+'</select></label>'+
+        '<label class="filter-field"><span class="filter-label">Search</span><input class="filter-input" value="'+escapeAttr(filters.search)+'" oninput="setFilter(\'search\',this.value)" placeholder="Task title or concept"></label>'+
+      '</div>'+
+      '<div class="filter-toggles">'+
+        '<label class="filter-toggle"><input type="checkbox" onchange="toggleFilter(\'showIncomplete\')"'+(filters.showIncomplete?' checked':'')+'>Only incomplete</label>'+
+        '<label class="filter-toggle"><input type="checkbox" onchange="toggleFilter(\'showEvidenceOnly\')"'+(filters.showEvidenceOnly?' checked':'')+'>Evidence-backed</label>'+
+        '<label class="filter-toggle"><input type="checkbox" onchange="toggleFilter(\'showShippedOnly\')"'+(filters.showShippedOnly?' checked':'')+'>Shipped only</label>'+
+        '<label class="filter-toggle"><input type="checkbox" onchange="toggleFilter(\'focusMode\')"'+(filters.focusMode?' checked':'')+'>This week / focus mode</label>'+
+      '</div>'+
+      '<div class="app-note">'+visibleCount+' tasks match the current view.</div>'+
+    '</section>'+
+    '<section class="ops-panel">'+
+      '<div class="panel-title">Progress Ops</div>'+
+      '<div class="ops-row">'+
+        '<button type="button" class="primary-btn" onclick="exportProgress()">Export progress</button>'+
+        '<button type="button" class="ghost-btn" onclick="importProgress()">Import</button>'+
+        '<button type="button" class="link-btn" onclick="resetProgress()">Reset</button>'+
+      '</div>'+
+      '<div class="app-note">Schema-versioned client storage with backward migration from the old checkbox-only localStorage map.</div>'+
+    '</section>'+
+  '</div>';
+}
+function renderPhaseInsights(phaseNumber){
+  var insights=getPhaseReviewInsights(phaseNumber);
+  return '<div class="phase-summary">'+
+    '<div class="insight-card"><div class="summary-kicker">Review Coverage</div><div class="metric-value">'+insights.count+'</div><div class="insight-copy">Weeks in this phase with written retro notes.</div></div>'+
+    '<div class="insight-card"><div class="summary-kicker">Average Confidence</div><div class="metric-value">'+(insights.confidence?insights.confidence.toFixed(1):'0.0')+'/5</div><div class="insight-copy">Confidence is logged weekly, not guessed retroactively.</div></div>'+
+    '<div class="insight-card"><div class="summary-kicker">Latest Win</div><div class="insight-copy">'+escapeHTML(insights.latestWin)+'</div></div>'+
+    '<div class="insight-card"><div class="summary-kicker">Latest Blocker</div><div class="insight-copy">'+escapeHTML(insights.latestBlocker)+'</div></div>'+
+  '</div>';
+}
+function renderResourcesView(){
+  var total=SUPP.reduce(function(sum,track){return sum+track.items.length;},0);
+  var free=SUPP.reduce(function(sum,track){return sum+track.items.filter(function(item){return item.f;}).length;},0);
+  return '<div class="app-shell">'+
+    '<div class="phase-hdr"><div class="phase-name">Supplementary Reading + Free Resources</div><div class="phase-meta">The resource view is now a lightweight planning layer for theory and depth work. Use it to support execution, not delay it.</div></div>'+
+    '<div class="resource-stats">'+
+      '<div class="kpi"><span class="klabel">Tracks</span><span class="kval">'+SUPP.length+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Total Resources</span><span class="kval">'+total+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Free Resources</span><span class="kval">'+free+'</span></div>'+
+    '</div>'+
+    '<div class="supp-wrap">'+SUPP.map(function(track){
+      return '<div class="supp-cat"><div class="supp-cat-hdr"><div class="legdot" style="background:'+track.c+'"></div><span class="supp-cat-name" style="color:'+track.c+'">'+escapeHTML(track.title)+'</span></div><div class="supp-items">'+track.items.map(function(item){
+        return '<div class="sitem"><div class="sname">'+escapeHTML(item.n)+(item.f?'<span class="freetag">FREE</span>':'')+'</div><div class="sauthor">'+escapeHTML(item.a)+'</div><div class="sdesc">'+escapeHTML(item.d)+'</div></div>';
+      }).join('')+'</div></div>';
+    }).join('')+'</div>'+
+  '</div>';
+}
+function renderEmptyState(){
+  return '<div class="empty-state"><div class="empty-title">No tasks match this view</div><div class="empty-copy">Tighten or clear the current filters. Focus mode, shipped-only, and evidence-only are composable, so it is easy to narrow the list to zero.</div></div>';
+}
+function render(){
+  document.querySelectorAll('.tab').forEach(function(t,i){t.classList.toggle('active',i+1===phase);});
+  var el=document.getElementById('main');
+  if(phase===5){
+    el.innerHTML=renderResourcesView();
+    return;
+  }
+  var metrics=getDashboardMetrics();
+  var phaseData=PHASES[phase];
+  var visibleWeeks=getVisibleWeeksForPhase(phase);
+  var visibleCount=visibleWeeks.reduce(function(total,week){return total+week.visibleTasks.length;},0);
+  var stats=getPhaseStats(phase);
+  el.innerHTML='<div class="app-shell">'+
+    renderDashboard(metrics)+
+    renderFilterBar(visibleCount)+
+    '<div class="phase-hdr"><div class="phase-name">'+escapeHTML(phaseData.name)+'</div><div class="phase-meta">'+escapeHTML(phaseData.dates)+' &nbsp;&middot;&nbsp; '+escapeHTML(phaseData.goal)+'</div></div>'+
+    renderPhaseInsights(phase)+
+    '<div class="phase-kpis">'+
+      '<div class="kpi"><span class="klabel">Weeks in Phase</span><span class="kval">'+stats.weeks+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Total Study Hours</span><span class="kval">'+stats.totalHours+'h</span></div>'+
+      '<div class="kpi"><span class="klabel">Average Hours / Week</span><span class="kval">'+stats.avgHours+'h</span></div>'+
+      '<div class="kpi"><span class="klabel">Build Sessions</span><span class="kval">'+stats.projectSessions+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Milestones</span><span class="kval">'+stats.examMilestones+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Evidence Tasks</span><span class="kval">'+stats.evidenceCount+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Shipped</span><span class="kval">'+stats.shipped+'</span></div>'+
+      '<div class="kpi"><span class="klabel">Completion</span><span class="kval">'+formatPct(stats.completionPct)+'</span></div>'+
+    '</div>'+
+    '<div class="phase-progress"><div class="phase-progress-head"><span class="klabel">Phase Progress</span><span class="phase-progress-meta">'+Math.round(stats.weighted*10)/10+'/'+stats.totalTasks+' weighted sessions</span></div><div class="phase-progress-track"><div class="phase-progress-fill" style="width:'+stats.completionPct+'%"></div></div></div>'+
+    (visibleWeeks.length?'<div class="roadmap">'+visibleWeeks.map(renderWeekCard).join('')+'</div>':renderEmptyState())+
+  '</div>';
+}
+document.addEventListener('change',function(event){
+  var target=event.target;
+  if(target.matches('[data-evidence-field]')){
+    updateEvidenceField(target.getAttribute('data-task-id'),target.getAttribute('data-evidence-field'),target.type==='checkbox'?target.checked:target.value);
+  }
+  if(target.matches('[data-review-field]')){
+    updateReviewField(target.getAttribute('data-week-id'),target.getAttribute('data-review-field'),target.value);
+  }
+});
+render();
+</script>
+</body>
