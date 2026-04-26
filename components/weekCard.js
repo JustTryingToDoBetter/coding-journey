@@ -13,6 +13,8 @@ export function renderWeekCard(milestone, stats, getTaskState) {
       <div class="week-metrics">
         <span class="week-chip">${formatPct(stats.completionPct)} complete</span>
         <span class="week-chip">${stats.evidenceCount} evidence</span>
+        <span class="week-chip">${stats.evidenceCoveragePct}% evidence coverage</span>
+        <span class="week-chip">${stats.readinessScore}% readiness</span>
       </div>
     </summary>
     <div class="week-summary">
@@ -22,6 +24,7 @@ export function renderWeekCard(milestone, stats, getTaskState) {
         <span class="week-chip">Difficulty: ${milestone.difficulty}</span>
         <span class="week-chip">Status: ${stats.status}</span>
         <span class="week-chip">Evidence: ${milestone.evidencePlaceholder}</span>
+        ${stats.missingEvidence.length ? `<span class="week-chip warning-chip">Missing: ${stats.missingEvidence.join(', ')}</span>` : ''}
       </div>
     </div>
     <div class="dgrid">${milestone.visibleTasks.map((task) => renderTaskCard(task, getTaskState(task.id))).join('')}</div>

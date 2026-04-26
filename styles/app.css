@@ -267,3 +267,10 @@ h1 span{background:linear-gradient(135deg,#20B97D,#2FA9FF 50%,#8D73FF);-webkit-b
 @media(max-width:700px){
   .board-grid{grid-template-columns:1fr}
 }
+
+.product-layers-grid{display:grid;gap:1rem;margin-top:.75rem}
+.product-panel{padding:1rem 1.05rem;display:grid;gap:.8rem}
+.evidence-vault-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}
+.recommendation-list,.next-plan-grid ul{margin-left:1rem;color:var(--text2);font-size:12px;line-height:1.6}
+.next-plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.7rem}
+.warning-chip{background:#FFF2E6;color:#B86A00;border-color:#FFD7B0}
