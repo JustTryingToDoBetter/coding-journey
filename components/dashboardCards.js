@@ -1,5 +1,5 @@
 export function renderDashboardCards(metrics) {
-  return `<section class="dashboard-panel">
+  return `<section class="dashboard-panel panel">
     <div class="panel-title">Execution Dashboard</div>
     <div class="dashboard-grid">
       <div class="metric-card"><span class="metric-label">Completion</span><div class="metric-value">${metrics.pctLabel}</div></div>

@@ -2,7 +2,7 @@ import { formatPct } from '../data/index.js';
 import { renderTaskCard } from './taskCard.js';
 
 export function renderWeekCard(week, stats, getTaskState) {
-  return `<section class="wcard open" id="${week.id}">
+  return `<section class="wcard card open" id="${week.id}">
     <div class="whdr">
       <div class="whdr-l">
         <div class="wmeta"><span class="wnum">Week ${String(week.number).padStart(2, '0')}</span><span class="wdates">${week.dates}</span></div>
@@ -14,6 +14,6 @@ export function renderWeekCard(week, stats, getTaskState) {
         <span class="week-chip">${stats.evidenceCount} evidence</span>
       </div>
     </div>
-    <div class="dgrid" style="display:grid">${week.visibleTasks.map((task) => renderTaskCard(task, getTaskState(task.id))).join('')}</div>
+    <div class="dgrid">${week.visibleTasks.map((task) => renderTaskCard(task, getTaskState(task.id))).join('')}</div>
   </section>`;
 }
